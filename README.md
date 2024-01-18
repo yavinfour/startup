@@ -30,9 +30,9 @@ I am going to use the required technologies in the following ways.
 #### CSS - This will be the map, it will be interactive and made of css elements
 #### JavaScript - Allows the user to login and displays information for the place that they selected
 #### Service - Has endpoints to
-  ~ login
-  ~ retrieve favorites
-  ~ add favorites
+  * login
+  * retrieve favorites
+  * add favorites
 #### DB/Login - Stores user information and that table links to a table that stores favorite city information. There is also a database to store information about the various locations
 #### WebSocket - Potentially the user is notified when new information is added to one of their favorite locations or when a new location becomes available to select
 #### React - Application ported to use the React web framework.
