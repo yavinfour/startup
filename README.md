@@ -1,6 +1,5 @@
-# Startup
+# Travel America
 
-## Travel America
 This application will effectively allow people to centralize all their travel planning into one general area. They will be able to click on the interactive map and find information about places they might want to visit as well as save their favorites.
 
 ## Specification Deliverable
@@ -9,23 +8,26 @@ This application will effectively allow people to centralize all their travel pl
   Planning a trip can be completely overwhelming, there is so much information out there and it's spread out over the whole internet. What if all of that information was compiled into one user-friendly source? Imagine being able to look at the map, find a place close to home (or far away if that's what you're looking for) and with one simple click you can see the interesting sites and activities that are available there. Rather than searching through pages and pages of information to find an interesting place to visit, you can simply click on the interactive map and find your new adventure. 
 
 ### Design
+
+This is how it would look to interact with the map.
+
 ![Screenshot of my mockup that shows the map and what the main page of the site should look like](https://github.com/yavinfour/startup/blob/main/Screenshot%202024-01-17%20183914.png)
 
-Here is a sequence diagram that shows how to people would interact with the backend to vote.
+And in the back, the client would connect to the server which would pull information out of the database.
 
-Voting sequence diagram
+![Screenshot of the backend, how the server and client are connected](https://github.com/yavinfour/startup/blob/main/20240117_194649.jpg)
 
 ### Key features
 
 I am going to use the required technologies in the following ways.
 
-### HTML - 
-### CSS - 
-### JavaScript - 
-### Service - 
+#### HTML - 
+#### CSS - 
+#### JavaScript - 
+#### Service - 
 #### DB/Login - 
-### WebSocket - 
-### React - 
+#### WebSocket - 
+#### React - 
 ## HTML deliverable
 
 ### HTML pages - 
