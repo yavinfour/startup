@@ -18,16 +18,24 @@ And in the back, the client would connect to the server which would pull informa
 ![Screenshot of the backend, how the server and client are connected](https://github.com/yavinfour/startup/blob/main/20240117_194649.jpg)
 
 ### Key features
+Secure login over HTTPS
+Interactive map
+Displays information about selected areas
+Ability to favorite places you want to visit
+Information is updated dynamically by the developer
 
 I am going to use the required technologies in the following ways.
 
-#### HTML - 
-#### CSS - 
-#### JavaScript - 
-#### Service - 
-#### DB/Login - 
-#### WebSocket - 
-#### React - 
+#### HTML - There will be an HTML page with a map that people can interact with, and a second page for login
+#### CSS - This will be the map, it will be interactive and made of css elements
+#### JavaScript - Allows the user to login and displays information for the place that they selected
+#### Service - Has endpoints to
+  ~ login
+  ~ retrieve favorites
+  ~ add favorites
+#### DB/Login - Stores user information and that table links to a table that stores favorite city information. There is also a database to store information about the various locations
+#### WebSocket - Potentially the user is notified when new information is added to one of their favorite locations or when a new location becomes available to select
+#### React - Application ported to use the React web framework.
 ## HTML deliverable
 
 ### HTML pages - 
