@@ -6,3 +6,6 @@
 
 ### HTML Language Tips
 * The "\<a>" will do hyperlinks
+
+### Github note tips
+* Backslash to print functional characters as actual characters
