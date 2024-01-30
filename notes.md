@@ -5,4 +5,4 @@
 * Find a map to use
 
 ### HTML Language Tips
-* The "<a>" will do hyperlinks
+* The "\<a>" will do hyperlinks
