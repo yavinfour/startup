@@ -6,6 +6,7 @@
 
 ### HTML Language Tips
 * The "\<a>" will do hyperlinks
+* * \<a href="url">link text\</a>
 * \<p>\<img src="hyperlink" alt="alternate name">\</p>
  -- this is the format for putting in images
 * input table -- \<table>
