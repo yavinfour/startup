@@ -76,5 +76,24 @@ animation-duration: 3s; (however many seconds)
   }
 }
 ```
+
+* Commonly used units in CSS
+| Unit | Description                                                      |
+| ---- | ---------------------------------------------------------------- |
+| px   | The number of pixels                                             |
+| pt   | The number of points (1/72 of an inch)                           |
+| in   | The number of inches                                             |
+| cm   | The number of centimeters                                        |
+| %    | A percentage of the parent element                               |
+| em   | A multiplier of the width of the letter `m` in the parent's font |
+| rem  | A multiplier of the width of the letter `m` in the root's font   |
+| ex   | A multiplier of the height of the element's font                 |
+| vw   | A percentage of the viewport's width                             |
+| vh   | A percentage of the viewport's height                            |
+| vmin | A percentage of the viewport's smaller dimension                 |
+| vmax | A percentage of the viewport's larger dimension                  |
+
+* *You can also describe color in lots of ways, including using hex, the keyword, RGB function or HSL(hue, sat, light) 
+  
 ### Github note tips
 * Backslash to print functional characters as actual characters
