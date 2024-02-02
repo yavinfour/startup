@@ -60,8 +60,21 @@ Input types
 ### CSS Notes
 * Animation
 * * Use the animation properties and create keyframes
-  * animation-name: demo;
-  * animation-duration: 3s; (however many seconds)
+```
+animation-name: demo;
+animation-duration: 3s; (however many seconds)
+```
+  * Example of zooming text
+```
+@keyframes demo {
+  from {
+    font-size: 0vh;
+  }
 
+  to {
+    font-size: 20vh;
+  }
+}
+```
 ### Github note tips
 * Backslash to print functional characters as actual characters
