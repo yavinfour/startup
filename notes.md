@@ -4,6 +4,8 @@
 * Figure outhow to set up click
 * Find a map to use
 
+
+
 ### HTML Language Tips
 
 Input types 
@@ -20,6 +22,7 @@ Input types
 | `label`    | Individual input label           | `<label for="range">Range: </label>`           |
 | `output`   | Output of input                  | `<output for="range">0</output>`               |
 | `meter`    | Display value with a known range | `<meter min="0" max="100" value="50"></meter>` |
+
 
 | Type	| Meaning |
 | ------|------|
@@ -57,6 +60,9 @@ Input types
         \</tr>
         \<tr>
 
+
+
+
 ### CSS Notes
 * Animation
 * * Use the animation properties and create keyframes
@@ -77,7 +83,10 @@ animation-duration: 3s; (however many seconds)
 }
 ```
 
+
 * Commonly used units in CSS
+
+
 | Unit | Description                                                      |
 | ---- | ---------------------------------------------------------------- |
 | px   | The number of pixels                                             |
@@ -93,7 +102,31 @@ animation-duration: 3s; (however many seconds)
 | vmin | A percentage of the viewport's smaller dimension                 |
 | vmax | A percentage of the viewport's larger dimension                  |
 
-* *You can also describe color in lots of ways, including using hex, the keyword, RGB function or HSL(hue, sat, light) 
+* *You can also describe color in lots of ways, including using hex, the keyword, RGB function or HSL(hue, sat, light)
+
+
+#### Getting Started in CSS
+```
+selector {
+property1: value1;
+property2: value2;
+}
+```
+So for example you could say "h1" in place of "selector" and then "color:blue" in place of "property1: value1;"
+| Element    | Meaning                          | Example                                        |
+| ---------- | -------------------------------- | ---------------------------------------------- |
+| `h1`     | The HTML headers: can say h2 etc | h1 {color:blue}      |
+| |      |  |
+|   |   |                           |
+|     |            |         |
+|  |     |       |
+|   |                |             |
+| |          |                    |
+|  | |  |
+|   |            |         |
+|  | | |
+
+
   
 ### Github note tips
 * Backslash to print functional characters as actual characters
