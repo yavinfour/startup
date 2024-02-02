@@ -46,7 +46,7 @@ Input types
  -- this is the format for putting in images
 * input table -- \<table>
         \<tr>
-          \<th>Table</th> the th does bold
+          \<th>Table</th> the th does bold (maybe means table header?)
           \<th>Table</th>
           \<th>Table</th>
         \</tr>
@@ -56,6 +56,12 @@ Input types
           \<td>table</td>
         \</tr>
         \<tr>
+
+### CSS Notes
+* Animation
+* * Use the animation properties and create keyframes
+  * animation-name: demo;
+  * animation-duration: 3s; (however many seconds)
 
 ### Github note tips
 * Backslash to print functional characters as actual characters
