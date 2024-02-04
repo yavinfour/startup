@@ -66,14 +66,19 @@ Input types
 | \<a> | hyperlinks |
 | \<address> | Author's contact information |
 | \<area> | Creates an image map with clickable areas |
-| \<audio> |  |
+| \<audio> | Connect audio using mp3 files |
+| \<b> | bold text within a paragraph (\<p>) |
+| \<body> | the body paragraph that comes after the head |
+| \<br> | it's empty, so there's no follow. Break line |
+| \<button> | This makes a clickable button!! |
 
 
 EXAMPLES
 
 ```
-\<a href="url">link text\</a>
+<a href="url">link text\</a>
 ```
+ -- this is the format for a hyperlink
 ```
   <p><img src="hyperlink" alt="alternate name"></p>
 ```
@@ -102,6 +107,9 @@ USA
   <source src="horse.mp3" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>
+```
+```
+<button type="button">Click Me!</button>
 ```
 
 
