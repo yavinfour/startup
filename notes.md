@@ -61,6 +61,14 @@ Input types
         \<tr>
 
 
+#### HTML Tags
+
+|   tag   |  usage  |
+| ------- | ------- |
+| \<!--...--> | This is a comment which is not displayed in the browser |
+| \<!DOCTYPE html> | This is the beginning of ALL html documents!! **Important!!** |
+|  |  |
+
 
 
 ### CSS Notes
