@@ -43,10 +43,6 @@ Input types
 | file	| Local file |
 | submit	| button to trigger form submission |
 
-* The "\<a>" will do hyperlinks
-* * \<a href="url">link text\</a>
-* \<p>\<img src="hyperlink" alt="alternate name">\</p>
- -- this is the format for putting in images
 * input table -- \<table>
         \<tr>
           \<th>Table</th> the th does bold (maybe means table header?)
@@ -60,6 +56,45 @@ Input types
         \</tr>
         \<tr>
 
+
+#### HTML Tags
+
+|   tag   |  usage  |
+| ------- | ------- |
+| \<!--...--> | This is a comment which is not displayed in the browser |
+| \<!DOCTYPE html> | This is the beginning of ALL html documents!! **Important!!** |
+| \<a> | hyperlinks |
+| \<address> | Author's contact information |
+| \<area> | Creates an image map with clickable areas |
+
+
+EXAMPLES
+
+```
+\<a href="url">link text\</a>
+```
+```
+  <p><img src="hyperlink" alt="alternate name"></p>
+```
+ -- this is the format for putting in images
+```
+<address>
+Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+```
+```
+<img src="workplace.jpg" alt="Workplace" usemap="#workmap" width="400" height="379">
+
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+  <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="coffee.htm">
+</map>
+```
 
 
 
