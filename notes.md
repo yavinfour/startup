@@ -71,6 +71,14 @@ Input types
 | \<body> | the body paragraph that comes after the head |
 | \<br> | it's empty, so there's no follow. Break line |
 | \<button> | This makes a clickable button!! |
+| \<cite> | encloses something you want to look cited |
+| \<data> | associates products with a number |
+| \<div> | a section that's styled with css |
+| \<em> | encloses something you want emphasized |
+| \<embed> | an embedded image, video or html page |
+| \<footer> | creates footer, use \<p> for inner paragraphs |
+| \<form> | create a form for users to fill out |
+
 
 
 EXAMPLES
@@ -111,7 +119,27 @@ USA
 ```
 <button type="button">Click Me!</button>
 ```
-
+```
+<ul>
+  <li><data value="21053">Cherry Tomato</data></li>
+  <li><data value="21054">Beef Tomato</data></li>
+  <li><data value="21055">Snack Tomato</data></li>
+</ul>
+```
+```
+<embed type="image/jpg" src="pic_trulli.jpg" width="300" height="200">
+<embed type="text/html" src="snippet.html" width="500" height="200">
+<embed type="video/webm" src="video.mp4" width="400" height="300">
+```
+```
+<form action="/action_page.php" method="get">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+```
 
 
 ### CSS Notes
