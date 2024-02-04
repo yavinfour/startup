@@ -43,18 +43,7 @@ Input types
 | file	| Local file |
 | submit	| button to trigger form submission |
 
-* input table -- \<table>
-        \<tr>
-          \<th>Table</th> the th does bold (maybe means table header?)
-          \<th>Table</th>
-          \<th>Table</th>
-        \</tr>
-        \<tr>
-          \<td>table</td> the td is just regular
-          \<td>table</td>
-          \<td>table</td>
-        \</tr>
-        \<tr>
+
 
 
 #### HTML Tags
@@ -99,6 +88,17 @@ Input types
 | \<s> | line through text that isn't true anymore |
 | \<section> | section in a document |
 | \<select> | goes with option |
+| \<sub> | surrounds subscript |
+| \<sup> | surrounds superscript |
+| \<svg> | insert svg graphics |
+| \<table> | insert a table |
+| \<td> | standard data cell in a table |
+| \<th> | table header |
+| \<time> | define a specific time/date |
+| \<title> | title your html document inside head |
+| \<tr> | table row |
+| \<video> | embed a video into the page |
+
 
 
 
@@ -168,6 +168,25 @@ USA
 ```
 ```
 <link rel="stylesheet" href="styles.css">
+```
+```
+* input table -- <table>
+        <tr>
+          <th>Table</th> the th does bold (maybe means table header?)
+          <th>Table</th>
+          <th>Table</th>
+        </tr>
+        <tr>
+          <td>table</td> the td is just regular
+          <td>table</td>
+          <td>table</td>
+        </tr>
+        <tr>
+```
+```
+<p>Open from <time>10:00</time> to <time>21:00</time> every weekday.</p>
+
+<p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p>
 ```
 
 
