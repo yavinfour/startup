@@ -66,6 +66,7 @@ Input types
 | \<a> | hyperlinks |
 | \<address> | Author's contact information |
 | \<area> | Creates an image map with clickable areas |
+| \<audio> |  |
 
 
 EXAMPLES
@@ -94,6 +95,13 @@ USA
   <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
   <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="coffee.htm">
 </map>
+```
+```
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
 ```
 
 
