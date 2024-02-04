@@ -78,6 +78,29 @@ Input types
 | \<embed> | an embedded image, video or html page |
 | \<footer> | creates footer, use \<p> for inner paragraphs |
 | \<form> | create a form for users to fill out |
+| \<h1>-\<h6> | the different html headers |
+| \<head> | container for metadata, goes between html tag and body tag |
+| \<header> | intro content or important links |
+| \<html lang = "en"> | I don't know what this does but it goes after DOCTYPE |
+| \<i> | italicize |
+| \<image> | insert image |
+| \<input> | space for gathering user input |
+| \<li> | list |
+| \<main> | the main content of the doc |
+| \<map> | an image map with clickable links! (look at area) |
+| \<mark> | highlight text |
+| \<nav> | set of navigation links |
+| \<object> | container for external resource (all info inside >) |
+| \<option> | an option in a select list |
+| \<output> | shows the result of a calculation |
+| \<p> | denotes a paragraph |
+| \<param> | parameters for the object element |
+| \<q> | denote a short quotation |
+| \<s> | line through text that isn't true anymore |
+| \<section> | section in a document |
+| \<select> | goes with option |
+
+
 
 
 
@@ -140,6 +163,13 @@ USA
   <input type="submit" value="Submit">
 </form>
 ```
+```
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+```
+```
+<link rel="stylesheet" href="styles.css">
+```
+
 
 
 ### CSS Notes
