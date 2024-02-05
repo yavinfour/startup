@@ -43,18 +43,7 @@ Input types
 | file	| Local file |
 | submit	| button to trigger form submission |
 
-* input table -- \<table>
-        \<tr>
-          \<th>Table</th> the th does bold (maybe means table header?)
-          \<th>Table</th>
-          \<th>Table</th>
-        \</tr>
-        \<tr>
-          \<td>table</td> the td is just regular
-          \<td>table</td>
-          \<td>table</td>
-        \</tr>
-        \<tr>
+
 
 
 #### HTML Tags
@@ -66,13 +55,61 @@ Input types
 | \<a> | hyperlinks |
 | \<address> | Author's contact information |
 | \<area> | Creates an image map with clickable areas |
+| \<audio> | Connect audio using mp3 files |
+| \<b> | bold text within a paragraph (\<p>) |
+| \<body> | the body paragraph that comes after the head |
+| \<br> | it's empty, so there's no follow. Break line |
+| \<button> | This makes a clickable button!! |
+| \<cite> | encloses something you want to look cited |
+| \<data> | associates products with a number |
+| \<div> | a section that's styled with css |
+| \<em> | encloses something you want emphasized |
+| \<embed> | an embedded image, video or html page |
+| \<footer> | creates footer, use \<p> for inner paragraphs |
+| \<form> | create a form for users to fill out |
+| \<h1>-\<h6> | the different html headers |
+| \<head> | container for metadata, goes between html tag and body tag |
+| \<header> | intro content or important links |
+| \<html lang = "en"> | I don't know what this does but it goes after DOCTYPE |
+| \<i> | italicize |
+| \<image> | insert image |
+| \<input> | space for gathering user input |
+| \<li> | list |
+| \<main> | the main content of the doc |
+| \<map> | an image map with clickable links! (look at area) |
+| \<mark> | highlight text |
+| \<nav> | set of navigation links |
+| \<object> | container for external resource (all info inside >) |
+| \<option> | an option in a select list |
+| \<output> | shows the result of a calculation |
+| \<p> | denotes a paragraph |
+| \<param> | parameters for the object element |
+| \<q> | denote a short quotation |
+| \<s> | line through text that isn't true anymore |
+| \<section> | section in a document |
+| \<select> | goes with option |
+| \<sub> | surrounds subscript |
+| \<sup> | surrounds superscript |
+| \<svg> | insert svg graphics |
+| \<table> | insert a table |
+| \<td> | standard data cell in a table |
+| \<th> | table header |
+| \<time> | define a specific time/date |
+| \<title> | title your html document inside head |
+| \<tr> | table row |
+| \<video> | embed a video into the page |
+
+
+
+
 
 
 EXAMPLES
 
 ```
-\<a href="url">link text\</a>
+<a href="url">link text\</a>
 ```
+ -- this is the format for a hyperlink
 ```
   <p><img src="hyperlink" alt="alternate name"></p>
 ```
@@ -95,7 +132,69 @@ USA
   <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="coffee.htm">
 </map>
 ```
+```
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+```
+```
+<button type="button">Click Me!</button>
+```
+```
+<ul>
+  <li><data value="21053">Cherry Tomato</data></li>
+  <li><data value="21054">Beef Tomato</data></li>
+  <li><data value="21055">Snack Tomato</data></li>
+</ul>
+```
+```
+<embed type="image/jpg" src="pic_trulli.jpg" width="300" height="200">
+<embed type="text/html" src="snippet.html" width="500" height="200">
+<embed type="video/webm" src="video.mp4" width="400" height="300">
+```
+```
+<form action="/action_page.php" method="get">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
+```
+```
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+```
+```
+<link rel="stylesheet" href="styles.css">
+```
+```
+* input table -- <table>
+        <tr>
+          <th>Table</th> the th does bold (maybe means table header?)
+          <th>Table</th>
+          <th>Table</th>
+        </tr>
+        <tr>
+          <td>table</td> the td is just regular
+          <td>table</td>
+          <td>table</td>
+        </tr>
+        <tr>
+```
+```
+<p>Open from <time>10:00</time> to <time>21:00</time> every weekday.</p>
 
+<p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p>
+```
+```
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+```
 
 
 ### CSS Notes
