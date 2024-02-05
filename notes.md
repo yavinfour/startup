@@ -8,6 +8,8 @@
 
 ### HTML Language Tips
 
+Updating the .pem file -> chmod 400 \<pem file>
+
 Input types 
 
 | Element    | Meaning                          | Example                                        |
