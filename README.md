@@ -45,6 +45,7 @@ I am going to use the required technologies in the following ways.
 ### Images - I included images in the buttons that show each state (it's pretty cool)
 ### DB/Login - There is a login page with a space for a user to login
 ### WebSocket - Users are notified with other users add a place as a favorite location
+### 3rd Party - Place holder for an event finder on the plan page
 ## CSS deliverable
 
 ### Header, footer, and main content body
