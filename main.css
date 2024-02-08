@@ -10,7 +10,17 @@ body {
     border-radius: 5px;
     padding: 20px;
     height: 200px;
+    menu {
+        text-align: center;
+        justify-content: center;
+        div{
+        font-family: "Georgia", serif;
+        padding: 0 0.5em;
+        flex-direction: row;
+        }
+    }
   }
+
   
   main {
     flex: 1 calc(100vh - 110px);
@@ -20,15 +30,17 @@ body {
     justify-content: space-around;
   }
   
+  
+  
   footer {
+    
     flex: 0 30px;
-    color: RebeccaPurple;
-  font-family: "Papyrus", fantasy;
-  div {
-    position: relative;
-    left: 300px;
-    border: 3px dashed darkblue;
-  }
+    background-color: plum;
+    font-family: "Georgia", serif;
+    text-align: left;
+    justify-items: left;
+    border-radius: 5px;
+    padding: 20px;
   }
   
   menu {
