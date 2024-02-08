@@ -38,12 +38,14 @@ I am going to use the required technologies in the following ways.
 #### React - Application ported to use the React web framework.
 ## HTML deliverable
 
-### HTML pages - 
-### Links - 
-### Text - 
-### Images - 
-### DB/Login - 
-### WebSocket - 
+### HTML pages - There are 3 HTML pages, one for login, one for seeing tourist attractions and one for listing favorite items
+### HTML tags - included and used properly
+### Links - There are links between the three pages available on every page
+### Text - Instructional text is provided and react will be used for the information from the database
+### Images - I included images in the buttons that show each state (it's pretty cool)
+### DB/Login - There is a login page with a space for a user to login
+### WebSocket - Users are notified with other users add a place as a favorite location
+### 3rd Party - Place holder for an event finder on the plan page
 ## CSS deliverable
 
 ### Header, footer, and main content body

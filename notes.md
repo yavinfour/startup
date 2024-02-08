@@ -263,6 +263,17 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 |  | | |
 
 
+
+### BOOTSTRAP
+
+```
+    <div id="accordion" class="accordion">
+         <div class="accordion-item">
+           <h2 class=äccordion-header" id="heading">
+                                                   <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+```
+
+
   
 ### Github note tips
 * Backslash to print functional characters as actual characters
