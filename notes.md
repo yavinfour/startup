@@ -267,6 +267,11 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 font-family: "Times New Roman", Times, serif;
 ```
 
+```
+text-align:justify;
+            display:inline-block;
+```
+¡Use this in all blocks within a set of brackets that you want to be in line!
 
 
 
