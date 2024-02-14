@@ -272,7 +272,11 @@ text-align:justify;
             display:inline-block;
 ```
 ¡Use this in all blocks within a set of brackets that you want to be in line!
-
+Or, another option is: 
+```
+display: inline;
+        float:left;
+```
 
 
 ### BOOTSTRAP
