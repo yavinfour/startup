@@ -11,18 +11,29 @@ body {
     padding: 20px;
     height: 200px;
     text-align: center;
-    justify-content: center;
     font-family: "Didot", serif;
-    menu {
-      justify-content: left;
-        div{
-        font-family: "helvetica", sans-serif;
-        padding: 0 0.5em;
-        flex-direction: row;
-        text-align: center;
-        background-color: rgb(149, 102, 161);
+    nav{
+        div{ background-color: rgb(122, 182, 206);
         border-radius: 5px;
-        padding: 20px;
+        padding: 10px;
+        height: 80px;
+        width: 85px;
+        text-align: center;
+        display: inline;
+        float:right;
+        }
+        menu {
+            display: inline;
+            float:left;
+            font-family: "helvetica", sans-serif;
+            padding: 0 0.5em;
+            flex-direction: row;
+            text-align: center;
+            background-color: rgb(149, 102, 161);
+            border-radius: 5px;
+            padding: 20px;
+            text-align:justify;
+                display:inline-block;
         }
     }
   }
