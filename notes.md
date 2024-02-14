@@ -252,7 +252,7 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 | Element    | Meaning                          | Example                                        |
 | ---------- | -------------------------------- | ---------------------------------------------- |
 | `h1`     | The HTML headers: can say h2 etc | h1 {color:blue}      |
-| |      |  |
+| `font` |      |  |
 |   |   |                           |
 |     |            |         |
 |  |     |       |
@@ -261,6 +261,12 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 |  | |  |
 |   |            |         |
 |  | | |
+
+
+```
+font-family: "Times New Roman", Times, serif;
+```
+
 
 
 
