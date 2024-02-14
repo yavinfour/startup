@@ -279,6 +279,10 @@ display: inline;
 ```
 
 
+#### SPACING
+The justify-content property values are flex-start, flex-end, center, space-between, space-around, and space-evenly, but there's no right value.
+
+
 ### BOOTSTRAP
 
 ```
