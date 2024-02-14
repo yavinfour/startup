@@ -16,7 +16,7 @@ body {
     menu {
       justify-content: left;
         div{
-        font-family: "helvetica", sans-serif;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         padding: 0 0.5em;
         flex-direction: row;
         text-align: center;
@@ -42,7 +42,7 @@ body {
     
     flex: 0 30px;
     background-color: rgb(129, 90, 129);
-    font-family: "Georgia", serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
     justify-items: left;
     border-radius: 5px;
