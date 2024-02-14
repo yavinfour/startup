@@ -22,7 +22,7 @@
       <!-- Navigation elements -->
       <nav>
         <div>
-          <p align="right">Welcome [user]!</p>
+          <param>Welcome [user]!</p>
         </div>
         <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu>
@@ -30,17 +30,18 @@
           <li><a href="plan.html">Plan a Vacation</a></li>
           <li><a href="favs.html">Favorite Places</a></li>
         </menu>
-        <p align="center">
-            NOTIFICATIONS
-        </p>
-        <p align="center">Jenny added "California" to favorites</p>
-        <p align="center">Trish added "Rhode Island" to favorites</p>
-
       </nav>
-
       <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
       <hr />
     </header>
+    
+      <div class="notify">      
+        <p>
+          NOTIFICATIONS
+        </p>
+        <p>Jenny added "California" to favorites</p>
+        <p>Trish added "Rhode Island" to favorites</p>
+      </div>
 
     <main>
       <h1>Choose a location</h1>
@@ -208,28 +209,31 @@
       <div style="font-size: 10px;">
         <a href="https://mapline.com" target="_blank">Mapping by Mapline</a>
       </div> -->
-      <p>Add selected location to favorites?</p>
-      <button>
-        <svg aria-hidden="true" viewBox="0 0 50 50" height="45" width="45">
-            <path d="M 5,15
-            A 10,10 0,0,1 25,15
-            A 10,10 0,0,1 45,15
-            Q 45,30 25,45
-            Q 5,30 5,15 z" stroke="indianred" fill="crimson" />
-        </svg>
-        <p>Add To Favorites</p>
-      </button>
+      <favoritize><p>Add selected location to favorites?</p>
+        <button>
+          <svg aria-hidden="true" viewBox="0 0 50 50" height="45" width="45">
+              <path d="M 5,15
+              A 10,10 0,0,1 25,15
+              A 10,10 0,0,1 45,15
+              Q 45,30 25,45
+              Q 5,30 5,15 z" stroke="indianred" fill="crimson" />
+          </svg>
+          <p>Add To Favorites</p>
+        </button></favoritize>
 
-      <div align="right" width="150px"> 
+      <dbinfo>      <div align="right" width="150px"> 
         <h3>Information from Database, called when state is clicked</h3>
         <p>requires css for formatting, should have a box</p></div>
+      </dbinfo>
 
-      <div width="150px"> 
-        <h3>Find events here</h3>
-        <button>
+      <apiEvents>      
+        <div width="150px"> 
+          <h3>Find events here</h3>
+          <button>
             <p>Event API</p>
-        </button>
-      </div>
+          </button>
+        </div>
+      </apiEvents>
 
     </main>
 
