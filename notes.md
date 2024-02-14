@@ -72,6 +72,7 @@ Input types
 | \<h1>-\<h6> | the different html headers |
 | \<head> | container for metadata, goes between html tag and body tag |
 | \<header> | intro content or important links |
+| \<hr/> | adds a line underneath th content |
 | \<html lang = "en"> | I don't know what this does but it goes after DOCTYPE |
 | \<i> | italicize |
 | \<image> | insert image |
