@@ -29,11 +29,15 @@ body {
 
   
   main {
+    background-color: aliceblue;
     flex: 1 calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    button {
+      color:aqua;
+    }
   }
   
   
