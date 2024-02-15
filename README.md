@@ -48,12 +48,13 @@ I am going to use the required technologies in the following ways.
 ### 3rd Party - Place holder for an event finder on the plan page
 ## CSS deliverable
 
-### Header, footer, and main content body
-### Navigation elements - 
-### Responsive to window resizing - 
-### Application elements - 
-### Application text content - 
-### Application images - 
+### All prereqs done
+### Header, footer, and main content body - styled and made pretty
+### Navigation elements - Styled with css and still functional to move between pages
+### Responsive to window resizing - I used flex boxes
+### Application elements - All elements on the page have style
+### Application text content - All of the text has been styled (mostly I played with fonts)
+### Application images - All the images show in the format that they should
 ## JavaScript deliverable
 
 ### login - 
