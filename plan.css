@@ -5,62 +5,61 @@ body {
     background-color: aliceblue;
     margin:0;
   }
-  
+
   header {
     flex: 0 80px;
     background-color: silver;
     border-radius: 5px;
     padding: 20px;
     height: 200px;
-    text-align: center;
     font-family: "Didot", serif;
-    nav{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        div{ 
-        background-color: rgb(122, 182, 206);
-        border-radius: 10px;
-        padding: 10px;
-        height: 80px;
-        width: 85px;
-        text-align: center;
-        text-align: justify;
-        display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      text-align: center;
+    }
+    menu {
+      display: flex;
+      div{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        a{
+          border-radius: 5px;
+          background-color:rgb(225, 200, 250);
+          color:rgb(49, 22, 53);
+          padding: 0em 1.5em;
+          text-decoration: none;
         }
-        menu {
-            flex: 0 0 auto;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            padding: 0 0.5em;
-            flex-direction: row;
-            text-align: center;
-            background-color: rgb(149, 102, 161);
-            border-radius: 5px;
-            padding: 20px;
-            width: 150px;
-            text-align: justify;
-            display: inline-block;
+        a:hover {
+          background-color: #c5c1f0;
         }
+        
+        a:active {
+          background-color: rgb(196, 166, 243);
+        }
+
+      }
     }
   }
-    .notify {
-        background-color: aliceblue;
-        .box{
-            margin-left: auto;
-            display:flex;
-            flex-direction: column;
-            .head{
-                border-bottom: solid;
-                border-width: 2px;
-                border-color:rgb(14, 126, 126);
-            }
-            width:fit-content;
-            text-align: center;
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-            border-style: solid;
-            border-width: 2px;
-            border-color:rgb(14, 126, 126);
-        }
+
+  .notify {
+      background-color: aliceblue;
+      .box{
+          margin-left: auto;
+          display:flex;
+          flex-direction: column;
+          .head{
+              border-bottom: solid;
+              border-width: 2px;
+              border-color:rgb(14, 126, 126);
+          }
+          width:fit-content;
+          text-align: center;
+          font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+          border-style: solid;
+          border-width: 2px;
+          border-color:rgb(14, 126, 126);
+      }
     }
     
   main {
@@ -78,20 +77,22 @@ body {
   
   
   footer {
-    
     flex: 0 30px;
-    background-color: rgb(129, 90, 129);
+    background-color: rgb(212, 196, 218);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: left;
-    justify-items: left;
+    text-align: justify;
     border-radius: 5px;
     padding: 20px;
+    text-align: justify;
+    display: inline-block;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    
   }
   
   menu {
     flex: 1;
     display: flex;
-    /*  overwrite Bootstrap so the menu does not wrap */
     flex-direction: row;
     list-style: none;
   }

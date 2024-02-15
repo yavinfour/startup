@@ -10,20 +10,33 @@ body {
     border-radius: 5px;
     padding: 20px;
     height: 200px;
-    text-align: center;
-    justify-content: center;
     font-family: "Didot", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      text-align: center;
+    }
     menu {
-      justify-content: left;
-        div{
+      display: flex;
+      div{
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        padding: 0 0.5em;
-        flex-direction: row;
-        text-align: center;
-        background-color: rgb(149, 102, 161);
-        border-radius: 5px;
-        padding: 20px;
+        a{
+          border-radius: 5px;
+          background-color:rgb(225, 200, 250);
+          color:rgb(49, 22, 53);
+          padding: 0em 1.5em;
+          text-decoration: none;
         }
+        a:hover {
+          background-color: #c5c1f0;
+        }
+        
+        a:active {
+          background-color: rgb(196, 166, 243);
+        }
+
+      }
     }
   }
 
@@ -39,14 +52,17 @@ body {
   
   
   footer {
-    
     flex: 0 30px;
-    background-color: rgb(129, 90, 129);
+    background-color: rgb(212, 196, 218);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: left;
-    justify-items: left;
+    text-align: justify;
     border-radius: 5px;
     padding: 20px;
+    text-align: justify;
+    display: inline-block;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    
   }
   
   menu {
