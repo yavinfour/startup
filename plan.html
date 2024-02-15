@@ -33,17 +33,18 @@
     </header>
     
       <div class="notify"> 
+
+        <h1>Choose a location</h1> 
         <div class="box">
           <p class="head">
             NOTIFICATIONS
           </p>
           <p class="note">Jenny added "California" to favorites</p>
           <p class="note">Trish added "Rhode Island" to favorites</p>
-        </div>      
+        </div>     
       </div>
 
     <main>
-      <h1>Choose a location</h1>
       <p></p>
       <button>
         <div id="picture" class="picture-box"><img height="100px" src="US States/Alaska.jpg" alt="random" /></div>
@@ -208,31 +209,42 @@
       <div style="font-size: 10px;">
         <a href="https://mapline.com" target="_blank">Mapping by Mapline</a>
       </div> -->
-      <favoritize><p>Add selected location to favorites?</p>
-        <button>
-          <svg aria-hidden="true" viewBox="0 0 50 50" height="45" width="45">
-              <path d="M 5,15
-              A 10,10 0,0,1 25,15
-              A 10,10 0,0,1 45,15
-              Q 45,30 25,45
-              Q 5,30 5,15 z" stroke="indianred" fill="crimson" />
-          </svg>
-          <p>Add To Favorites</p>
-        </button></favoritize>
+    <hr/>
+    <div class="favoritize">
+      <p>Add selected location to favorites?</p>
+      <button>
+        <svg aria-hidden="true" viewBox="0 0 50 50" height="45" width="45">
+          <path d="M 5,15
+            A 10,10 0,0,1 25,15
+            A 10,10 0,0,1 45,15
+            Q 45,30 25,45
+            Q 5,30 5,15 z" stroke="indianred" fill="crimson" />
+        </svg>
+        <p>Add To Favorites</p>
+      </button>
+    </div>
 
-      <dbinfo>      <div align="right" width="150px"> 
-        <h3>Information from Database, called when state is clicked</h3>
-        <p>requires css for formatting, should have a box</p></div>
+      <dbinfo>      
+        <div align="right" width="150px" id="card" class="demo-box">
+          <h2>Database Information</h2>
+          <div class="card" style="width:300px">
+            <img class="state" src="US States/Alabama.jpg" />
+    
+            <div class="card-body">
+              <h5 class="card-title"> Alabama! <span class="badge bg-secondary">State</span></h5>
+              <p class="card-text">Alabama is considered part of the South</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
       </dbinfo>
-
-      <apiEvents>      
-        <div width="150px"> 
-          <h3>Find events here</h3>
+      <hr/>
+      <div class="apiEvents"> 
+          <h3>Find events here!</h3>
           <button>
             <p>Event API</p>
           </button>
-        </div>
-      </apiEvents>
+      </div>
 
     </main>
 
