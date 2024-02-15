@@ -50,20 +50,42 @@ body {
   .notify {
     padding-left: 30px;
     display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: space-between;
     align-items: center;
       background-color: aliceblue;
+      .click-me {
+        display:block;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #fffdfdcc,3px 3px 5px rgba(94, 104, 121, 0.342);
+        text-align:center;
+        font-size:22px;
+        line-height:50px;
+        cursor:pointer;
+      }
+      #click{
+        display: none;
+      }
+      .click-me:hover {
+        color:rgb(49, 22, 53);
+      }
+      .content{
+        visibility:hidden;  
+        width: 330px;
+        height: auto;
+        background: #dde1e7;
+        padding: 30px 35px 40px;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+      #click:checked~.content{
+        opacity:1;
+        visibility:visible;
+      }
       .box{
           margin-left: auto;
           display:flex;
           flex-direction: column;       
-          .head{
-            background-color: #b5b0ec;
-            border-radius: 50px;
-              border-bottom: solid;
-              border-width: 2px;
-              border-color:rgb(6, 27, 27);
-          }
           .note{
             background: rgb(218, 208, 208); 
             border-style: solid;
@@ -74,12 +96,13 @@ body {
           width:fit-content;
           text-align: center;
           font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-          border-style: solid;
+          padding: 10px;
+          /* border-style: solid;
             border-width: 2px;
             border-color:rgb(14, 126, 126);
             border-radius: 10px;
             padding: 10px;
-            background: linear-gradient(to right, rgb(175, 192, 207), #f1cbfa); 
+            background: linear-gradient(to right, rgb(175, 192, 207), #f1cbfa);  */
         }
     }
     
