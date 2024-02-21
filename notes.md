@@ -302,3 +302,21 @@ The justify-content property values are flex-start, flex-end, center, space-betw
   
 ### Github note tips
 * Backslash to print functional characters as actual characters
+* Rest notation allows you to enter an array as one parameter
+```
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
+
+hasNumber(2, 1, 2, 3);
+```
+* spread notation does the opposite, it splits an array into multiple entries
+```
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
