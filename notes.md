@@ -330,9 +330,19 @@ submitDataEl.addEventListener('click', function (event) {
 });
 ```
 
+Declaring Java script variables: 
+- 
+
+Format for entering JS into HTML:
+
 
 
   
 ### Github note tips
 * Backslash to print functional characters as actual characters
 * Rest notation allows you to enter an array as one parameter
+
+
+### Misc helpful information
+- chmod is changing file permissions
+- sudo is giving moderator permissions
