@@ -294,6 +294,45 @@ The justify-content property values are flex-start, flex-end, center, space-betw
 ```
 
 
+### Java Script Notes
+
+* in order to include js in your html, you need to include /<script /src="nameoffile.js"></script>
+
+
+```
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
+
+hasNumber(2, 1, 2, 3);
+```
+* spread notation does the opposite, it splits an array into multiple entries
+```
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
+
+#### declaring variables
+var - I think this is the scope of everything within where you declare the variable, things will overwrite this if they're nested
+const - I think this is a constant that doesn't change
+let - this is how you want to declare a variable that can change
+
+##### Event listener
+```
+const submitDataEl = document.querySelector('#submitData');
+submitDataEl.addEventListener('click', function (event) {
+  console.log(event.type);
+});
+```
+
+
+
   
 ### Github note tips
 * Backslash to print functional characters as actual characters
+* Rest notation allows you to enter an array as one parameter
