@@ -25,13 +25,14 @@ body {
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         a{
           border-radius: 5px;
-          background-color:rgb(225, 200, 250);
-          color:rgb(49, 22, 53);
+          background-color:rgb(176, 166, 187);
+          color:rgb(22, 12, 24);
           padding: 0em 1.5em;
           text-decoration: none;
         }
         a:hover {
-          background-color: #c5c1f0;
+          background-color: #9c94e4;
+          color:rgb(22, 12, 24);
         }
         
         a:active {
@@ -112,13 +113,13 @@ body {
       border-radius: 10px;
       div{
         border-radius: 5px;
-        background-color:rgb(225, 200, 250);
-        color:rgb(49, 22, 53);
+        background-color:rgb(201, 175, 226);
+        color:rgb(39, 16, 43);
         text-decoration: none;
         padding:10px;
       }
       div:hover {
-        background-color: #111022;
+        background-color: #c5cdf0;
       }
 
     }
@@ -133,17 +134,15 @@ body {
         justify-content: space-around;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-    .favoritize button {
+    .favoritize button{
       border-radius: 5px;
-      background-color: rgb(225, 200, 250);
-      color: rgb(49, 22, 53);
+      background-color:rgb(201, 175, 226);
+      color:rgb(39, 16, 43);
       text-decoration: none;
-      padding: 10px;
-      transition: background-color 0.3s ease; /* Added transition for smooth hover effect */
+      padding:10px;
     }
-    
     .favoritize button:hover {
-      background-color: #706da7;
+      background-color: #c5cdf0;
     }
 
     .apiEvents {
@@ -151,16 +150,16 @@ body {
       flex-direction: column;
       justify-content: center;
       text-align: center;
-        p{
-          border-radius: 5px;
-          margin-top:10px;
-          background-color:rgb(242, 231, 253);
-          text-decoration: none;
-          padding:10px;
-        }
-        p:hover {
-          background-color: #555369;
-        }
+      p{
+        border-radius: 5px;
+        background-color:rgb(201, 175, 226);
+        color:rgb(39, 16, 43);
+        text-decoration: none;
+        padding:10px;
+      }
+      p:hover {
+        background-color: #c5cdf0;
+      }
     }
   }
   
