@@ -54,52 +54,62 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: space-between;
     align-items: center;
-      background-color: aliceblue;
-      .click-me {
-        display:block;
-        background: #dde1e7;
-        box-shadow: -3px -3px 7px #fffdfdcc,3px 3px 5px rgba(94, 104, 121, 0.342);
-        text-align:center;
-        font-size:22px;
-        line-height:50px;
-        cursor:pointer;
-      }
-      #click{
-        display: none;
-      }
-      .click-me:hover {
-        color:rgb(49, 22, 53);
-      }
-      .content{
-        visibility:hidden;  
-        width: 330px;
-        height: auto;
-        background: #dde1e7;
-        padding: 30px 35px 40px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        max-height: 300px; /* Set your desired max height */
-        overflow-y: auto; /* Add a scrollbar when content overflows */
-      }
-      #click:checked~.content{
-        opacity:1;
-        visibility:visible;
-      }
+    background-color: aliceblue;
+    position: relative;
+      
       .box{
           margin-left: auto;
           display:flex;
-          flex-direction: column;       
-          .note{
-            background: rgb(218, 208, 208); 
-            border-style: solid;
-            border-width: 2px;
-            border-color:rgb(14, 126, 126);
-            border-radius: 50px;
-          } 
+          flex-direction: column;  
+          .click-me {
+            display:block;
+            background: #dde1e7;
+            box-shadow: -3px -3px 7px #fffdfdcc,3px 3px 5px rgba(94, 104, 121, 0.342);
+            text-align:center;
+            font-size:22px;
+            line-height:50px;
+            cursor:pointer;
+          }
+          #click{
+            display: none;
+          }
+          .click-me:hover {
+            color:rgb(49, 22, 53);
+          }
+          .content{
+            visibility:hidden;  
+            width: 250px;
+            max-height:400px;
+            overflow-y: auto;
+            background: #dde1e7;
+            padding: 30px 35px 40px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            position: absolute; /* Add this to set position absolute */
+            top: 100%; /* Add this to position it below the .notify div */
+            right: 0; /* Add this to align it with the left edge of .notify */
+            z-index: 1; /* Add this to ensure it appears above other content */
+            .note{
+              background: rgb(218, 208, 208);
+              border-style: solid;
+              border-width: 2px;
+              border-color: rgb(14, 126, 126);
+              border-radius: 50px;
+              width: fit-content;
+              text-align: center;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+              padding: 8px;
+              margin-bottom: 10px;
+            } 
+          }
+          #click:checked~.content{
+            opacity:1;
+            visibility:visible;
+          }     
+          
           width:fit-content;
           text-align: center;
           font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-          padding: 10px;
           /* border-style: solid;
             border-width: 2px;
             border-color:rgb(14, 126, 126);
