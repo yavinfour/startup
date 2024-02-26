@@ -101,6 +101,7 @@ Input types
 | \<time> | define a specific time/date |
 | \<title> | title your html document inside head |
 | \<tr> | table row |
+| \<ul> | unordered list |
 | \<video> | embed a video into the page |
 
 
