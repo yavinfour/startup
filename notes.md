@@ -349,6 +349,7 @@ Declaring Java script variables:
 Format for entering JS into HTML:
 /<script src="login.js"></script>
 /<script> #insert code </script>
+/onclick="alert('Hey there! Greetings from Coders')"
 (if it references html in your js, you'll need to declare it at the end of html file before closing body and html tags)
 
 
