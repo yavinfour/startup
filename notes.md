@@ -353,12 +353,6 @@ Format for entering JS into HTML:
 /onclick="alert('Hey there! Greetings from Coders')"
 (if it references html in your js, you'll need to declare it at the end of html file before closing body and html tags)
 
-
-
-
-
-
-
   
 Github note tips
 -
@@ -374,3 +368,5 @@ NO = function f(x) = {}
 YES = const f = (x) => {}
 YES = function f(x) {}
 YES = const f = function(x) {}
+- js objects
+- - { n:1 }
