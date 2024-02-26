@@ -370,6 +370,8 @@ Github note tips
 * * YES = const f = function(x) {}
 - js objects
 - - valid = { n:1 }
+  - valid = {n:"1"}
   - invalid = { n=1 }
   - invalid = { "n"=1}
   - invalid = { "n"="1" }
+- 
