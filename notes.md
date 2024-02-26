@@ -369,3 +369,8 @@ Github note tips
 ### Misc helpful information
 - chmod is changing file permissions
 - sudo is giving moderator permissions
+- functions in java script
+NO = function f(x) = {}
+YES = const f = (x) => {}
+YES = function f(x) {}
+YES = const f = function(x) {}
