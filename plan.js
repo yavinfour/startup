@@ -25,7 +25,7 @@
     "North Carolina is home to Kitty Hawk island where the Wright brothers had their first successful flight", "North Dakota maybe has mount Rushmore?", 
     "Ohio state is an enemy of Michigan I think", "Oklahoma looks like a frying pan", "Oregon has the Tillamook cheese factory which is more famous than Wisconsin cheese", 
     "Pennsylvania is home to the Liberty Bell", "Rhode Island is even smaller than Connecticut", "South Carolina has really good pulled pork (better than Texas)", 
-    "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas has really good brisket (better than South Carolina)", "Utah has a bunch of seagulls :)", 
+    "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas is a hick state", "Utah has a bunch of seagulls :)", 
     "Vermont looks like an upside down New Hampshire", "Virginia is covered in beautiful green forests", "Washington  has the same vibes as England", 
     "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
   ];
@@ -69,8 +69,10 @@
 
   function stateInfo(index) {
     const state = states[index];
-    const newFacts = document.querySelector('dbinfo');
+    const newFacts = document.querySelector('#dbinfo');
     
+    console.log('Selected Element:', newFacts);
+
     const card = document.createElement('div');
     card.classList.add('card');
     card.style.width = '300px';
@@ -100,6 +102,8 @@
 
     card.appendChild(stateImage);
     card.appendChild(cardBody);
+
+    console.log('Card Created:', card);
 
     newFacts.insertBefore(card, newFacts.firstChild);
   }
