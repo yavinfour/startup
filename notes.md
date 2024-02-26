@@ -201,7 +201,7 @@ USA
 ```
 
 
-### CSS Notes
+CSS Notes
 -
 * Animation
 * * Use the animation properties and create keyframes
@@ -296,7 +296,7 @@ The justify-content property values are flex-start, flex-end, center, space-betw
 ```
 
 
-### Java Script Notes
+Java Script Notes
 -
 
 * in order to include js in your html, you need to include /<script /src="nameoffile.js"></script>
@@ -358,7 +358,7 @@ Format for entering JS into HTML:
 
 
   
-### Github note tips
+Github note tips
 -
 * Backslash to print functional characters as actual characters
 * Rest notation allows you to enter an array as one parameter
