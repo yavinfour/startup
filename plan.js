@@ -41,3 +41,39 @@
       chatText.innerHTML;
   }, 5000);
   
+
+  /* This function is going to take in a parameter given when you click on a specific box.
+  Normally this would call data from the database but for js we're hardcoding information 
+  Then we're going to create a card using that information (the name will be found using the index
+    on the states array and the info same idea on the info array)
+    Then we just plug those strings in as information for the card.*/
+
+  function stateInfo (index) {
+    const state = states[index];
+    const newFacts = document.querySelector('#new-facts');
+    
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '300px';
+
+    const stateImage = document.createElement('img');
+    stateImage.classList.add('state');
+    stateImage.src = 'US States/${state}.png';
+
+    newFacts.innerHTML =
+    '<div class="card" style="width:300px">' +
+            '<img class="state" src="US States/AL.png" />'+
+            '<div class="card-body">' +
+              '<h5 class="card-title"> ${state} <span class="badge bg-secondary">State</span></h5>'+
+              '<p class="card-text">Alabama is considered part of the South</p>'+
+            '</div>'+
+          '</div>'
+      `<card class="card"><span class="user-event">Amy</span> added ${states[score]}</div>` +
+      newFacts.innerHTML;
+  }
+
+
+  /* For the favorites, I can keep track of what the index is
+  and then if they click the favorites button I can add it to a 
+  set of indexes. Then that set will populate information when we 
+  go to the favorites page. How will I pass the set through though?*/
