@@ -101,6 +101,7 @@ Input types
 | \<time> | define a specific time/date |
 | \<title> | title your html document inside head |
 | \<tr> | table row |
+| \<ul> | unordered list |
 | \<video> | embed a video into the page |
 
 
@@ -352,12 +353,6 @@ Format for entering JS into HTML:
 /onclick="alert('Hey there! Greetings from Coders')"
 (if it references html in your js, you'll need to declare it at the end of html file before closing body and html tags)
 
-
-
-
-
-
-
   
 Github note tips
 -
@@ -368,3 +363,15 @@ Github note tips
 ### Misc helpful information
 - chmod is changing file permissions
 - sudo is giving moderator permissions
+- functions in java script
+* * NO = function f(x) = {}
+* * YES = const f = (x) => {}
+* * YES = function f(x) {}
+* * YES = const f = function(x) {}
+- js objects
+- - valid = { n:1 }
+  - valid = {n:"1"}
+  - invalid = { n=1 }
+  - invalid = { "n"=1}
+  - invalid = { "n"="1" }
+- 
