@@ -78,6 +78,8 @@ body {
         padding: 30px 35px 40px;
         box-sizing: border-box;
         border-radius: 5px;
+        max-height: 300px; /* Set your desired max height */
+        overflow-y: auto; /* Add a scrollbar when content overflows */
       }
       #click:checked~.content{
         opacity:1;
