@@ -374,4 +374,6 @@ Github note tips
   - invalid = { n=1 }
   - invalid = { "n"=1}
   - invalid = { "n"="1" }
-- 
+- Insert DOM info()
+- Insert DNS info()
+- Console.log outputs data in JS
