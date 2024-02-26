@@ -317,7 +317,7 @@ console.log(p);
 // OUTPUT: {first: 'Ryan', last: 'Dahl'}
 ```
 
-#### declaring variables
+#### variable types
 var - I think this is the scope of everything within where you declare the variable, things will overwrite this if they're nested
 const - I think this is a constant that doesn't change
 let - this is how you want to declare a variable that can change
@@ -330,10 +330,27 @@ submitDataEl.addEventListener('click', function (event) {
 });
 ```
 
+##### JS Promise
+```
+return new Promise(async (pressResolve) => {
+      this.paint(50);
+      await this.playSound(volume);
+      this.paint(25);
+      pressResolve();
+    });
+```
+
 Declaring Java script variables: 
 - 
 
 Format for entering JS into HTML:
+/<script src="login.js"></script>
+/<script> #insert code </script>
+(if it references html in your js, you'll need to declare it at the end of html file before closing body and html tags)
+
+
+
+
 
 
 
