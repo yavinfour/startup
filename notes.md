@@ -367,6 +367,9 @@ Github note tips
 * * NO = function f(x) = {}
 * * YES = const f = (x) => {}
 * * YES = function f(x) {}
-** YES = const f = function(x) {}
+* * YES = const f = function(x) {}
 - js objects
-- - { n:1 }
+- - valid = { n:1 }
+  - invalid = { n=1 }
+  - invalid = { "n"=1}
+  - invalid = { "n"="1" }
