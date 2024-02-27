@@ -1,3 +1,6 @@
+  export const pokedex = 0;
+
+
   let states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
     "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
@@ -107,6 +110,7 @@
     card.appendChild(cardBody);
 
     newFacts.insertBefore(card, newFacts.firstChild);
+    pokedex = index;
   }
 
 
