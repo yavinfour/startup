@@ -572,23 +572,23 @@ console.log(p);
 ```
 
 #### variable types
-var - I think this is the scope of everything within where you declare the variable, things will overwrite this if they're nested
-const - I think this is a constant that doesn't change
-let - this is how you want to declare a variable that can change
-Null - not yet assigned a value
-Undefined - var has not been defined
-Boolean - true or false
-Number - 64 bit signed
-BigInt - a number of arbitrary magnitude
-String - char sequence
-Symbol - a unique symbol
+* var - I think this is the scope of everything within where you declare the variable, things will overwrite this if they're nested
+* const - I think this is a constant that doesn't change
+* let - this is how you want to declare a variable that can change
+* Null - not yet assigned a value
+* Undefined - var has not been defined
+* Boolean - true or false
+* Number - 64 bit signed
+* BigInt - a number of arbitrary magnitude
+* String - char sequence
+* Symbol - a unique symbol
 
-Object - name-value pairs - {a:3, b:'fish'}
-Function - a callable object - function a() {}
-Date - calendar dates and times - new Date('1995-12-17')
-Array - any type of ordered sequence - [3, 'fish']
-Map - key-value pairs - new map()
-JSON - we know json - {"a":3, "b":"fish"}
+* Object - name-value pairs - {a:3, b:'fish'}
+* Function - a callable object - function a() {}
+* Date - calendar dates and times - new Date('1995-12-17')
+* Array - any type of ordered sequence - [3, 'fish']
+* Map - key-value pairs - new map()
+* JSON - we know json - {"a":3, "b":"fish"}
 
 
 ##### Operators and Operations within JS
@@ -636,7 +636,87 @@ return new Promise(async (pressResolve) => {
     });
 ```
 
-Declaring Java Script variables: 
+#### JS Functions and Filters
+
+```
+let a = ['cow', 'rat', 'fish'];
+let b = a.filter(v=>v.match(/A|f/i));
+console.log(b);
+```
+- v is an element within the array
+- the arrow function checks if there is an a or an f, case insensitive
+
+MORE EXAMPLES
+
+```
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evens = numbers.filter(num => num % 2 === 0);
+console.log(evens);
+// Output: [2, 4, 6, 8, 10]
+```
+
+```
+let words = ['apple', 'banana', 'grape', 'kiwi', 'orange'];
+let longWords = words.filter(word => word.length > 5);
+console.log(longWords);
+// Output: ['banana', 'orange']
+```
+
+```
+let values = [-2, 5, -8, 10, -3, 7];
+let positives = values.filter(num => num > 0);
+console.log(positives);
+// Output: [5, 10, 7]
+```
+
+##### objects
+-
+
+- object can really refer to anything in Java
+- if a function returns an object, it's considered a constructor and can be invoked with =new=
+- class can define objects
+- - classes can inherit
+- obj.prop - access properties (also obj['prop'])
+```
+const obj = new Object({ a: 3 });
+obj['b'] = 'fish';
+obj.c = [1, 2, 3];
+obj.hello = function () {
+  console.log('hello');
+};
+
+console.log(obj);
+// OUTPUT: {a: 3, b: 'fish', c: [1,2,3], hello: func}
+```
+| function| meaning|
+|------|-------|
+|entries | returns array of key-value pairs|
+|keys| returns an array of keys| 
+|values | returns an array of values|
+
+
+##### regular expressions
+-
+(textual pattern matchers)
+- declaration
+```
+const objRegex = new RegExp('ab*', 'i');
+const literalRegex = /ab*/i;
+```
+- functions
+```
+const petRegex = /(dog)|(cat)|(bird)/gim;
+const text = 'Both cats and dogs are pets, but not rocks.';
+
+text.match(petRegex);
+// RETURNS: ['cat', 'dog']
+
+text.replace(petRegex, 'animal');
+// RETURNS: Both animals and animals are pets, but not rocks.
+
+petRegex.test(text);
+// RETURNS: true
+```
 
 
 Format for entering JS into HTML:
