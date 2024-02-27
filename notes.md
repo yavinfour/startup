@@ -320,79 +320,79 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 |bottom |	Positions the element from the bottom of the relative container.
 |box-shadow |	Adds a shadow effect to an element.
 |box-sizing |	Sets how element height and width are calculated.
-|caption-side	Defines on which side of the table a caption is placed.
-|caret-color	Sets the color of the blinking mouse caret.
-|@charset	Specifies the character encoding of the stylesheet.
-|clear	Sets the element side that does not allow floating elements.
-|clip	Sets how an image is cropped or clipped inside a container.
-|clip-path	Clips an element inside a specific shape or SVG.
-|color	Specifies the color of text in an element.
-|column-count	Divides an element into the specified number of columns.
-|column-fill	Specifies how divided columns are filled.
-|column-gap	Specifies the space between divided columns.
-|column-rule	Sets the style, width, and color of a column divider.
-|column-rule-color	Sets the color of a column divider.
-|column-rule-style	Sets the style of a column divider.
-|column-rule-width	Sets the width of a column divider.
-|column-span	Sets number of divided columns an element should span.
-|column-width	Specifies the width of a divided column.
-|columns	Divide an element into columns of a certain width.
-|content	Used to insert content before or after an element.
-|counter-increment	Increase or decrease a CSS counter.
-|counter-reset	Initialize or reset CSS counter.
-|cursor	Specifies the shape of the mouse cursor.
-|direction	Specifies the text writing direction of a block-level element.
-|display	Specify an element's display behavior.
-|empty-cells	Specifies whether empty table cell borders will be displayed.
-|filter	Adds an image enhancing effect to an image.
-|flex	Specifies the width of the flexible items.
-|flex-basis	Specifies the initial width of a flex item.
-|flex-direction	Specifies the direction for the flex item to align.
-|flex-flow	Controls the direction and wrapping of flexible items.
-|flex-grow	Specifies how a flex item can grow inside the container.
-|flex-shrink	Specifies how a flex item can shrink inside the container.
-|flex-wrap	Specifies how flexible items wrap inside the container.
-|float	Sets how an element is positioned relative to other elements.
-|font	Sets font family, variant, weight, height, and size for an element.
-|@font-face	Embeds a custom font inside a web page
-|font-family	Sets the font family for an element.
-|font-kerning	Sets the spacing between the font's characters.
-|font-size	Sets the size of the font for an element.
-|font-size-adjust	Specifies a fall-back font size.
-|font-stretch	Sets the text characters to a wider or narrower variant.
-|font-style	Set the font style to normal, italic, or oblique.
-|font-variant	Specifies that text is displayed in a small-caps font.
-|font-weight	Sets the weight or thickness of the font.
-|grid	Defines a grid layout with responsive rows and columns.
-|grid-area	Sets the size and location of grid items in a grid container.
-|grid-auto-columns	Specifies the size of the columns in a grid container.
-|grid-auto-flow	Specifies the initial placement of items in a grid container.
-|grid-auto-rows	Specifies the initial size of the items in a grid container.
-|grid-column	Specifies the size and location of a grid item in a grid container.
-|grid-column-end	Specifies in which column-line the grid item will end.
-|grid-column-gap	Specifies the gap size between columns in a grid container.
-|grid-column-start	Specifies in which column line the grid item will start.
-|grid-gap	Specifies the gap size between grid rows and columns.
-|grid-row	Specifies the grid item size and location in a grid container.
-|grid-row-end	Specifies in which row-line the grid item will end.
-|grid-row-gap	Specifies the gap size between rows in a grid container.
-|grid-row-start	Specifies in which row line the grid item will start
-|grid-template	Divides a page into sections with a size, position, and layer.
-|grid-template-areas	Specifies area in a grid container.
-|grid-template-columns	Sets the number and width of columns in a grid container.
-|grid-template-rows	Sets the number and height of rows in a grid container.
-|height	Sets the height of an element.
-|hyphens	Specifies hyphenation with wrap opportunities in a line of text.
-|@import	Imports a style sheet inside another style sheet.
-|justify-content	Defines the alignment of items in a flex container.
-|@keyframes	Defines the CSS style to animate.
-|left	Positions the element from the left of the relative container.
-|letter-spacing	Sets the spacing between characters.
-|line-height	Sets the vertical spacing between lines of text.
-|list-style	Defines the markers (bullet points) for items in a list.
-|list-style-image	Defines an image markers (bullet points) for items in a list.
-|list-style-position	Sets the marker (bullet point) positions for items in a list
-|list-style-type	Defines the marker types (bullet points) for items in a list
+|caption-side |	Defines on which side of the table a caption is placed.
+|caret-color	| Sets the color of the blinking mouse caret.
+|@charset	| Specifies the character encoding of the stylesheet.
+|clear	| Sets the element side that does not allow floating elements.
+|clip	| Sets how an image is cropped or clipped inside a container.
+|clip-path	| Clips an element inside a specific shape or SVG.
+|color	| Specifies the color of text in an element.
+|column-count	| Divides an element into the specified number of columns.
+|column-fill	| Specifies how divided columns are filled.
+|column-gap	| Specifies the space between divided columns.
+|column-rule	| Sets the style, width, and color of a column divider.
+|column-rule-color	| Sets the color of a column divider.
+|column-rule-style	| Sets the style of a column divider.
+|column-rule-width	| Sets the width of a column divider.
+|column-span	| Sets number of divided columns an element should span.
+|column-width	| Specifies the width of a divided column.
+|columns	| Divide an element into columns of a certain width.
+|content	| Used to insert content before or after an element.
+|counter-increment	| Increase or decrease a CSS counter.
+|counter-reset	| Initialize or reset CSS counter.
+|cursor	| Specifies the shape of the mouse cursor.
+|direction	| Specifies the text writing direction of a block-level element.
+|display	| Specify an element's display behavior.
+|empty-cells	| Specifies whether empty table cell borders will be displayed.
+|filter	| Adds an image enhancing effect to an image.
+|flex	| Specifies the width of the flexible items.
+|flex-basis	| Specifies the initial width of a flex item.
+|flex-direction	| Specifies the direction for the flex item to align.
+|flex-flow	| Controls the direction and wrapping of flexible items.
+|flex-grow	| Specifies how a flex item can grow inside the container.
+|flex-shrink	| Specifies how a flex item can shrink inside the container.
+|flex-wrap	| Specifies how flexible items wrap inside the container.
+|float	| Sets how an element is positioned relative to other elements.
+|font	| Sets font family, variant, weight, height, and size for an element.
+|@font-face	| Embeds a custom font inside a web page
+|font-family	| Sets the font family for an element.
+|font-kerning	| Sets the spacing between the font's characters.
+|font-size	| Sets the size of the font for an element.
+|font-size-adjust	| Specifies a fall-back font size.
+|font-stretch	| Sets the text characters to a wider or narrower variant.
+|font-style	| Set the font style to normal, italic, or oblique.
+|font-variant	| Specifies that text is displayed in a small-caps font.
+|font-weight	| Sets the weight or thickness of the font.
+|grid	| Defines a grid layout with responsive rows and columns.
+|grid-area	| Sets the size and location of grid items in a grid container.
+|grid-auto-columns	| Specifies the size of the columns in a grid container.
+|grid-auto-flow	| Specifies the initial placement of items in a grid container.
+|grid-auto-rows	| Specifies the initial size of the items in a grid container.
+|grid-column	| Specifies the size and location of a grid item in a grid container.
+|grid-column-end	| Specifies in which column-line the grid item will end.
+|grid-column-gap	| Specifies the gap size between columns in a grid container.
+|grid-column-start	| Specifies in which column line the grid item will start.
+|grid-gap	| Specifies the gap size between grid rows and columns.
+|grid-row	| Specifies the grid item size and location in a grid container.
+|grid-row-end	| Specifies in which row-line the grid item will end.
+|grid-row-gap	| Specifies the gap size between rows in a grid container.
+|grid-row-start	| Specifies in which row line the grid item will start
+|grid-template	| Divides a page into sections with a size, position, and layer.
+|grid-template-areas	| Specifies area in a grid container.
+|grid-template-columns	| Sets the number and width of columns in a grid container.
+|grid-template-rows |	Sets the number and height of rows in a grid container.
+|height	| Sets the height of an element.
+|hyphens	| Specifies hyphenation with wrap opportunities in a line of text.
+|@import |	Imports a style sheet inside another style sheet.
+|justify-content	| Defines the alignment of items in a flex container.
+|@keyframes	| Defines the CSS style to animate.
+|left	| Positions the element from the left of the relative container.
+|letter-spacing	| Sets the spacing between characters.
+|line-height	| Sets the vertical spacing between lines of text.
+|list-style	| Defines the markers (bullet points) for items in a list.
+|list-style-image	| Defines an image markers (bullet points) for items in a list.
+|list-style-position	| Sets the marker (bullet point) positions for items in a list
+|list-style-type |	Defines the marker types (bullet points) for items in a list
 |margin	Sets the margin (outside spacing) for an element.
 |margin-bottom	Sets the bottom margin (outside spacing) for an element.
 |margin-left	Sets the left margin (outside spacing) for an element.
