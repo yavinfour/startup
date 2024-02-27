@@ -1071,3 +1071,33 @@ Github note tips
 - A - maps an ip to a domain 
 - CNAME - subdomain to domain - points to another DNS record
 - ALIAS - points a domain to a host name
+
+
+## Kahoot
+-
+
+- you can use @import url ('https://fonts.googleapis.comblahblah'); to import fonts from Google
+- column reverse will reverse your text in the vertical direction
+- column is vertical, row is horizontal
+- padding puts a space around the content of selected elements
+```
+const f = y => ++y;
+console.log(f(3))
+```
+- outputs 4
+- /<div> creates a division element
+- css box model, outside in, is margin, border, padding then content
+- .match(/A|f/i) means find an a or an f, case *insensitive*
+- You can join with .join or with the +
+- /<ul> is the html tag for an unordered list
+- function f(x) = {} is not a valid js function
+- /<javascript></javascript> is not valid
+- in order to be a valid javascript object, it needs a : in between
+- the DOM textContent property sets the child text for an element
+- /<a href='https://c.com'>x</a> creates a valid hyperlink
+- /div.header { color: blue; } or /.header{color:blue;} will turn text blue
+- /{"x":3} is valid JSON whereas {'x':3}, {"x":undefined}, {x:3} are NOT
+- chmod +x deploy.sh makes a script executeable
+- cs260.cs.byu.edu is a DNS subdomain, byu.edu, edu and byu are not
+- to point to another DNS record, use CNAME
+- 
