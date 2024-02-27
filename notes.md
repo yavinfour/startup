@@ -9,8 +9,6 @@
 HTML Language Tips
 -
 
-Updating the .pem file -> chmod 400 \<pem file>
-
 Input types 
 
 | Element    | Meaning                          | Example                                        |
@@ -540,7 +538,7 @@ return new Promise(async (pressResolve) => {
     });
 ```
 
-Declaring Java script variables: 
+Declaring Java Script variables: 
 
 
 Format for entering JS into HTML:
@@ -548,6 +546,29 @@ Format for entering JS into HTML:
 /<script> #insert code </script>
 /onclick="alert('Hey there! Greetings from Coders')"
 (if it references html in your js, you'll need to declare it at the end of html file before closing body and html tags)
+YOU CANNOT SAY /<javascript>
+
+
+Declaring Java Script Functions:
+function doMath(operation, a, b) {}
+const add = function (a, b) {}
+a.sort((v1, v2) => v1 - v2); = a.sort(function (v1, v2) {return v1 - v2;});
+
+
+ARRAY FUNCTIONS
+|Function	| Meaning	| Example
+push|	Add an item to the end of the array|	a.push(4)
+pop	|Remove an item from the end of the array|	x = a.pop()
+slice|	Return a sub-array	|a.slice(1,-1)
+sort	|Run a function to sort an array in place|	a.sort((a,b) => b-a)
+values	|Creates an iterator for use with a for of loop	|for (i of a.values()) {...}
+find	|Find the first item satisfied by a test function	|a.find(i => i < 2)
+forEach|	Run a function on each array item|	a.forEach(console.log)
+reduce	|Run a function to reduce each array item to a single item	|a.reduce((a, c) => a + c)
+map	|Run a function to map an array to a new array|	a.map(i => i+i)
+filter	|Run a function to remove items	|a.filter(i => i%2)
+every	|Run a function to test if all items match|	a.every(i => i < 3)
+some	|Run a function to test if any items match|	a.some(i => 1 < 1)
 
   
 Github note tips
@@ -573,3 +594,4 @@ Github note tips
 - Insert DOM info()
 - Insert DNS info()
 - Console.log outputs data in JS
+- Updating the .pem file -> chmod 400 \<pem file>
