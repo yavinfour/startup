@@ -1,5 +1,3 @@
-import { getPokedex, setFavArray, setPokedex } from './globalVars.js';
-  
   let states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
     "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
@@ -50,6 +48,7 @@ import { getPokedex, setFavArray, setPokedex } from './globalVars.js';
         }
   }
 
+  const game = new Game();
   
   // Simulate chat messages that will come over WebSocket
   setInterval(() => {
@@ -70,6 +69,8 @@ import { getPokedex, setFavArray, setPokedex } from './globalVars.js';
   function stateInfo(index) {
     const state = states[index];
     const newFacts = document.querySelector('#dbinfo');
+
+    setPokedex(index);
     
     const existingCard = document.querySelector('.card');
     if (existingCard) {
@@ -107,8 +108,6 @@ import { getPokedex, setFavArray, setPokedex } from './globalVars.js';
     card.appendChild(cardBody);
 
     newFacts.insertBefore(card, newFacts.firstChild);
-
-    setPokedex(index);
   }
 
   function addIndex() {
