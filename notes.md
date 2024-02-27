@@ -199,6 +199,53 @@ USA
 </video>
 ```
 
+```
+<body>
+  <p>Body</p>
+  <header>
+    <p>Header - <span>Span</span></p>
+    <nav>
+      Navigation
+      <div>Div</div>
+      <div>Div</div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p>Section</p>
+      <ul>
+        <li>List</li>
+        <li>List</li>
+        <li>List</li>
+      </ul>
+    </section>
+    <section>
+      <p>Section</p>
+      <table>
+        <tr>
+          <th>Table</th>
+          <th>Table</th>
+          <th>Table</th>
+        </tr>
+        <tr>
+          <td>table</td>
+          <td>table</td>
+          <td>table</td>
+        </tr>
+      </table>
+    </section>
+    <aside>
+      <p>Aside</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div>Footer - <span>Span</span></div>
+  </footer>
+</body>
+```
+
 
 CSS Notes
 -
@@ -494,6 +541,14 @@ The justify-content property values are flex-start, flex-end, center, space-betw
 Java Script Notes
 -
 
+* console.log generally prints out to the console. You can either
+* * print directly using console.log('hello');
+* * format your messages like console.log('hello %s', 'world');
+* * specify css delcarations within the console log parentheses
+* timers
+* * console.time will tell you how long it takes to run something
+* console.count tell you how many time a block has been called
+
 * in order to include js in your html, you need to include /<script /src="nameoffile.js"></script>
 
 
@@ -519,6 +574,48 @@ console.log(p);
 var - I think this is the scope of everything within where you declare the variable, things will overwrite this if they're nested
 const - I think this is a constant that doesn't change
 let - this is how you want to declare a variable that can change
+Null - not yet assigned a value
+Undefined - var has not been defined
+Boolean - true or false
+Number - 64 bit signed
+BigInt - a number of arbitrary magnitude
+String - char sequence
+Symbol - a unique symbol
+
+Object - name-value pairs - {a:3, b:'fish'}
+Function - a callable object - function a() {}
+Date - calendar dates and times - new Date('1995-12-17')
+Array - any type of ordered sequence - [3, 'fish']
+Map - key-value pairs - new map()
+JSON - we know json - {"a":3, "b":"fish"}
+
+
+##### Operators and Operations within JS
+* /+ is regular addition
+* /- is regular subtraction
+* /* is mult
+* // divide
+* /=== strict equality (bools) (you can use this and the /+ on strings)
+* /!== strict inequality (bools)
+* if/else/else if
+* * a === 1 ? console.log(1) : console.log('not 1');
+  * if (true && (!false || true)) {}
+* loops
+* * for/ for in / for of / while / do while / switch
+  * for is the same
+  * do while is the same
+  * while is the same
+  * for in is the same
+  * for of is like for in
+  * It doesn't say about switches
+* String
+* * length / indexOf() / split() / startsWith() / endsWith() / toLowerCase()
+* JSON
+  ```
+  const json = JSON.stringify(obj);
+  const objFromJson = JSON.parse(json);
+  ```
+* 
 
 ##### Event listener
 ```
