@@ -1,6 +1,5 @@
-  export const pokedex = 0;
-
-
+import { getPokedex, setFavArray, setPokedex } from './globalVars.js';
+  
   let states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
     "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
@@ -50,8 +49,6 @@
             return localStorage.getItem('userName') ?? 'New User';
         }
   }
-  
-  const game = new Game();
 
   
   // Simulate chat messages that will come over WebSocket
@@ -110,7 +107,12 @@
     card.appendChild(cardBody);
 
     newFacts.insertBefore(card, newFacts.firstChild);
-    pokedex = index;
+
+    setPokedex(index);
+  }
+
+  function addIndex() {
+    setFavArray(getPokedex());
   }
 
 
