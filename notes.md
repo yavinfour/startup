@@ -990,8 +990,34 @@ console.log(cow());
 ```
 
 AWAIT
--
+- the await works with async to make sure the result is output
+```
+console.log(cow());
+// OUTPUT: Promise {<pending>}
 
+console.log(await cow());
+// OUTPUT: moo
+```
+
+PROMISE VS AWAIT
+```
+const httpPromise = fetch('https://simon.cs260.click/api/user/me');
+const jsonPromise = httpPromise.then((r) => r.json());
+jsonPromise.then((j) => console.log(j));
+console.log('done');
+
+// OUTPUT: done
+// OUTPUT: {email: 'bud@mail.com', authenticated: true}
+```
+```
+const httpResponse = await fetch('https://simon.cs260.click/api/user/me');
+const jsonResponse = await httpResponse.json();
+console.log(jsonResponse);
+console.log('done');
+
+// OUTPUT: {email: 'bud@mail.com', authenticated: true}
+// OUTPUT: done
+```
 
 
 ARRAY FUNCTIONS
@@ -1032,9 +1058,16 @@ Github note tips
   - invalid = { n=1 }
   - invalid = { "n"=1}
   - invalid = { "n"="1" }
-- Insert DOM info()
-- Insert DNS info()
 - Console.log outputs data in JS
 - Updating the .pem file -> chmod 400 \<pem file>
 - Be careful if things are added to all elements or just one
    - document.querySelector('p') only affects one p element
+- use console.log to debut your function
+- - you can also debug in your browser
+- subdomains have extra stuff at the front
+- 
+
+#### DNS
+- A - maps an ip to a domain 
+- CNAME - subdomain to domain - points to another DNS record
+- ALIAS - points a domain to a host name
