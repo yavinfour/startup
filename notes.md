@@ -53,28 +53,28 @@ Input types
 | ------- | ------- |
 | \<!--...--> | This is a comment which is not displayed in the browser |
 | \<!DOCTYPE html> | This is the beginning of ALL html documents!! **Important!!** |
-| \<a> | hyperlinks |
+| \<a> | *link*: hyperlinks |
 | \<address> | Author's contact information |
 | \<area> | Creates an image map with clickable areas |
 | \<audio> | Connect audio using mp3 files |
-| \<b> | bold text within a paragraph (\<p>) |
+| \<b> | *bold* text within a paragraph (\<p>) |
 | \<body> | the body paragraph that comes after the head |
-| \<br> | it's empty, so there's no follow. Break line |
+| \<br> | it's empty, so there's no follow. *line break*|
 | \<button> | This makes a clickable button!! |
 | \<cite> | encloses something you want to look cited |
 | \<data> | associates products with a number |
-| \<div> | a section that's styled with css |
-| \<em> | encloses something you want emphasized |
+| \<div> | division: a section that's styled with css |
+| \<em> | encloses something you want *emphasized* |
 | \<embed> | an embedded image, video or html page |
 | \<footer> | creates footer, use \<p> for inner paragraphs |
 | \<form> | create a form for users to fill out |
-| \<h1>-\<h6> | the different html headers |
+| \<h1>-\<h6> | *heading*: the different html headers |
 | \<head> | container for metadata, goes between html tag and body tag |
 | \<header> | intro content or important links |
-| \<hr/> | adds a line underneath th content |
-| \<html lang = "en"> | I don't know what this does but it goes after DOCTYPE |
-| \<i> | italicize |
-| \<image> | insert image |
+| \<hr/> | *horizontal rule*: adds a line underneath th content |
+| \<html lang = "en"> | *content language*: it goes after DOCTYPE |
+| \<i> | *italicize* |
+| \<img> | insert image |
 | \<input> | space for gathering user input |
 | \<li> | list |
 | \<main> | the main content of the doc |
@@ -84,21 +84,22 @@ Input types
 | \<object> | container for external resource (all info inside >) |
 | \<option> | an option in a select list |
 | \<output> | shows the result of a calculation |
-| \<p> | denotes a paragraph |
+| \<p> | denotes a *paragraph* |
 | \<param> | parameters for the object element |
-| \<q> | denote a short quotation |
-| \<s> | line through text that isn't true anymore |
+| \<q> | denote a short *quotation* |
+| \<s> | *strikethrough*: line through text that isn't true anymore |
 | \<section> | section in a document |
 | \<select> | goes with option |
 | \<sub> | surrounds subscript |
 | \<sup> | surrounds superscript |
-| \<svg> | insert svg graphics |
+| \<svg> | insert svg graphics (*scalable vector graphics*)|
 | \<table> | insert a table |
-| \<td> | standard data cell in a table |
-| \<th> | table header |
+| \<td> | standard *data* cell in a table |
+| \<th> | table *header* |
 | \<time> | define a specific time/date |
 | \<title> | title your html document inside head |
-| \<tr> | table row |
+| /<tr> | table *rows* |
+| /<u> | *underline* |
 | \<ul> | unordered list |
 | \<video> | embed a video into the page |
 
