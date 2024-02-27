@@ -718,6 +718,115 @@ petRegex.test(text);
 // RETURNS: true
 ```
 
+##### rest
+you can combine the "rest" of the parameters
+using 
+```
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
+
+hasNumber(2, 1, 2, 3);
+// RETURNS: true
+```
+only the last parameter can be a rest
+
+##### spread
+```
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
+this takes an iterable object and expands it
+
+##### exceptions
+```
+try {
+  // normal execution code
+} catch (err) {
+  // exception handling code
+} finally {
+  // always called code
+}
+```
+create a *fallback* by accessing local storage
+
+##### destructuring
+you can cut out elements of an array
+```
+const a = [1, 2, 4, 5];
+
+// destructure the first two items from a, into the new variables b and c
+const [b, c] = a;
+
+console.log(b, c);
+// OUTPUT: 1, 2
+```
+You can also just cut out an array
+```
+const [b, c, ...others] = a;
+
+console.log(b, c, others);
+// OUTPUT: 1, 2, [4,5]
+```
+You can do something similar to objects
+```
+const o = { a: 1, b: 'animals', c: ['fish', 'cats'] };
+
+const { a, c } = o;
+
+console.log(a, c);
+// OUTPUT 1, ['fish', 'cats']
+```
+And if you want to rewrite the values
+```
+const o = { a: 1, b: 'animals', c: ['fish', 'cats'] };
+
+const { a: count, b: type } = o;
+
+console.log(count, type);
+// OUTPUT 1, animals
+```
+or need default values
+```
+const { a, b = 22 } = {};
+const [c = 44] = [];
+
+console.log(a, b, c);
+// OUTPUT: undefined, 22, 44
+```
+
+##### Scope
+- global - visible to all code
+- module - visible to any code running in a module
+- function - visible within a function
+- block - visible to any code within a curly brace block
+- var ignores block scope (unlike let and const)
+- this
+- - when this is referenced outside an object or function it refers to globalThis object
+  - when it's inside a function it regers to the object that owns the function
+  - when it's inside an object it refers to the object
+
+##### modules
+- alert.js
+- you can import using import {function in alert.js} from './alert.js'
+- modules can only be called from other modules
+
+##### local storage
+There are four main functions that can be used with localStorage.
+
+Function	|Meaning
+--------|---------
+setItem(name, value)|	Sets a named item's value into local storage
+getItem(name)	|Gets a named item's value from local storage
+removeItem(name)|	Removes a named item from local storage
+clear()	|Clears all items in local storage
+A local storage value must be of type string, number, or boolean. If you want to store a JavaScript object or array, then you must first convert it to a JSON string with JSON.stringify() on insertion, and parse it back to JavaScript with JSON.parse() when retrieved.
+
 
 Format for entering JS into HTML:
 /<script src="login.js"></script>
@@ -731,6 +840,158 @@ Declaring Java Script Functions:
 function doMath(operation, a, b) {}
 const add = function (a, b) {}
 a.sort((v1, v2) => v1 - v2); = a.sort(function (v1, v2) {return v1 - v2;});
+const f = (x) => {}
+const f = function(x) {}
+
+
+#### DOM
+Example from my code
+```
+function stateInfo(index) {
+    const state = states[index];
+    const newFacts = document.querySelector('#dbinfo');
+    
+    const existingCard = document.querySelector('.card');
+    if (existingCard) {
+        existingCard.remove();
+    }
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '300px';
+
+    const stateImage = document.createElement('img');
+    stateImage.classList.add('state');
+    stateImage.src = `US States/${state}.png`;
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const cardTitle = document.createElement('h4');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = `${state}`;
+
+    const badge = document.createElement('span');
+    badge.classList.add('badge', 'bg-secondary');
+    badge.textContent = 'State';
+
+    const cardText = document.createElement('p');
+    cardText.classList.add('card-text');
+    cardText.textContent = `${stateFact[index]}`;
+    
+    cardTitle.appendChild(badge);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+
+    card.appendChild(stateImage);
+    card.appendChild(cardBody);
+
+    newFacts.insertBefore(card, newFacts.firstChild);
+  }
+```
+
+##### Promises
+- HTML is run on a single thread
+- promises let your code take turns
+- three states
+- - pending - Currently running asynchronously
+- - fulfilled - Completed successfully
+- - rejected - Failed to complete
+- setTimeout() will let you decide how long to wait
+```
+const delay = (msg, wait) => {
+  setTimeout(() => {
+    console.log(msg, wait);
+  }, 1000 * wait);
+};
+
+new Promise((resolve, reject) => {
+  // Code executing in the promise
+  for (let i = 0; i < 3; i++) {
+    delay('In promise', i);
+  }
+});
+
+// Code executing after the promise
+for (let i = 0; i < 3; i++) {
+  delay('After promise', i);
+}
+
+// OUTPUT:
+//   In promise 0
+//   After promise 0
+//   In promise 1
+//   After promise 1
+//   In promise 2
+//   After promise 2
+```
+- resolve/reject
+```
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve('success');
+    } else {
+      reject('error');
+    }
+  }, 10000);
+});
+```
+- then / catch / finally
+- option one
+```
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.1) {
+      resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+    } else {
+      reject('fell off table');
+    }
+  }, 10000);
+});
+```
+- option 2
+```
+coinToss
+  .then((result) => console.log(`Coin toss result: ${result}`))
+  .catch((err) => console.log(`Error: ${err}`))
+  .finally(() => console.log('Toss completed'));
+
+// OUTPUT:
+//    Coin toss result: tails
+//    Toss completed
+```
+
+##### async/await
+- better than promises
+- wraps the execution of a promise so you don't have to chain
+- await will block until the promise moves to fulfilled or throw an exception if the state moves to rejected.
+```
+try {
+  const result = await coinToss();
+  console.log(`Toss result ${result}`);
+} catch (err) {
+  console.error(`Error: ${err}`);
+} finally {
+  console.log(`Toss completed`);
+}
+```
+
+ASYNC
+- you have to declare a function as async or the fun has to be at the top level of java script in order to call it with await.
+```
+async function cow() {
+  return new Promise((resolve) => {
+    resolve('moo');
+  });
+}
+console.log(cow());
+// OUTPUT: Promise {<pending>}
+```
+
+AWAIT
+-
+
 
 
 ARRAY FUNCTIONS
@@ -775,3 +1036,5 @@ Github note tips
 - Insert DNS info()
 - Console.log outputs data in JS
 - Updating the .pem file -> chmod 400 \<pem file>
+- Be careful if things are added to all elements or just one
+   - document.querySelector('p') only affects one p element
