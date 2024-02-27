@@ -71,7 +71,10 @@
     const state = states[index];
     const newFacts = document.querySelector('#dbinfo');
     
-    console.log('Selected Element:', newFacts);
+    const existingCard = document.querySelector('.card');
+    if (existingCard) {
+        existingCard.remove();
+    }
 
     const card = document.createElement('div');
     card.classList.add('card');
@@ -102,8 +105,6 @@
 
     card.appendChild(stateImage);
     card.appendChild(cardBody);
-
-    console.log('Card Created:', card);
 
     newFacts.insertBefore(card, newFacts.firstChild);
   }
