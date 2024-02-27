@@ -556,7 +556,9 @@ a.sort((v1, v2) => v1 - v2); = a.sort(function (v1, v2) {return v1 - v2;});
 
 
 ARRAY FUNCTIONS
+
 |Function	| Meaning	| Example
+| -----------|-----------| --------------|
 push|	Add an item to the end of the array|	a.push(4)
 pop	|Remove an item from the end of the array|	x = a.pop()
 slice|	Return a sub-array	|a.slice(1,-1)
