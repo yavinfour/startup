@@ -393,74 +393,74 @@ So for example you could say "h1" in place of "selector" and then "color:blue" i
 |list-style-image	| Defines an image markers (bullet points) for items in a list.
 |list-style-position	| Sets the marker (bullet point) positions for items in a list
 |list-style-type |	Defines the marker types (bullet points) for items in a list
-|margin	Sets the margin (outside spacing) for an element.
-|margin-bottom	Sets the bottom margin (outside spacing) for an element.
-|margin-left	Sets the left margin (outside spacing) for an element.
-|margin-right	Sets the right margin (outside spacing) for an element.
-|margin-top	Sets the top margin (outside spacing) for an element.
-|max-height	Sets the maximumn height for an element.
-|max-width	Sets the maximum width for an element.
-|@media	Applies media queries to a page.
-|min-height	Sets the minimum height for an element.
-|min-width	Sets the minimum width for an element.
-|object-fit	Specifies how an image or video fits inside a container.
-|object-position	Specifies the image or video position inside a container.
-|opacity	Sets the opacity (transparency) of the element.
-|order	Specifies the order of an item in a flex container.
-|outline	Adds an outline (highlighted border) to an element.
-|outline-color	Sets the color of an outline.
-|outline-offset	Sets the space between the outline and border.
-|outline-style	Sets the style of an outline.
-|outline-width	Sets the width of an outline.
-|overflow	Specifies the flow of content that exceeds the container.
-|overflow-x	Specifies the flow of content that exceeds the container width.
-|overflow-y	Specifies the flow of content that exceeds the container height.
-|padding	Sets the spacing between content and element border.
-|padding-bottom	Sets the spacing between content and bottom element border.
-|padding-left	Sets the spacing between content and left element border.
-|padding-right	Sets the spacing between content and right element border.
-|padding-top	Sets the spacing between content and top element border.
-|page-break-after	Adds a print page-break after an element.
-|page-break-before	Adds a print page-break before an element.
-|page-break-inside	Specifies if print page-break is allowed inside an element.
-|perspective	Adds perspective to a 3D-positioned element.
-|perspective-origin	Sets the origin of the perspective for a 3D-positioned element.
-|pointer-events	Specifies whether element reacts to pointer events or not.
-|position	Sets the element's positioning method.
-|quotes	Defines the quotation marks to be used on text.
-|right	Positions the element from the right of the relative container.
-|scroll-behavior	Specifies the scrolling behavior of an element
-|table-layout	Aligns elements according to a table with rows and columns.
-|text-align	Sets the alignment of text inside an element.
-|text-align-last	Sets the alignment for the last line of text.
-|text-decoration	Defines the style and color of underlined text.
-|text-decoration-color	Defines the color of underlined text.
-|text-decoration-line	Defines the kind of line to use with text.
-|text-decoration-style	Defines the style of underlined text.
-|text-indent	Sets the indentation to the beginning of text.
-|text-justify	Defines the text justification inside a container.
-|text-overflow	Sets the display behavior of text that overflows a container.
-|text-shadow	Adds a shadow effect to text.
-|text-transform	Defines text capitalization or casing.
-|top	Positions the element from the top of the relative container
-|transform	Applies a 2D or 3D transformation to an element.
-|transform-origin	Sets the origin for the transformation of the element.
-|transform-style	Specifies the display behavior of 3D space nested elements.
-|transition	Creates transitions from one property value to another.
-|transition-delay	Creates a delay before the transition effect starts.
-|transition-duration	Specifies the time the transition will take.
-|transition-property	Specifies the CSS property that will transition.
-|transition-timing-function	Defines the speed curve function of the transition.
-|user-select	Specifies how text can be selected (highlighted)
-|vertical-align	Specifies vertical alignment of an element.
-|visibility	Specifies the visibility of an element.
-|white-space	Specifies how white-space is handled inside an element.
-|width	Sets the width of an element.
-|word-break	Specifies how line breaks take place.
-|word-spacing	Sets the spacing between words.
-|word-wrap	Specifies how long words can be wrapped.
-|writing-mode	Sets the text reading orientation: top to bottom, etc.
-|z-index	Sets the vertical stacking order relative to other elements.
+|margin	| Sets the margin (outside spacing) for an element.
+|margin-bottom |	Sets the bottom margin (outside spacing) for an element.
+|margin-left	| Sets the left margin (outside spacing) for an element.
+|margin-right |	Sets the right margin (outside spacing) for an element.
+|margin-top	| Sets the top margin (outside spacing) for an element.
+|max-height |	Sets the maximumn height for an element.
+|max-width |	Sets the maximum width for an element.
+|@media	| Applies media queries to a page.
+|min-height	| Sets the minimum height for an element.
+|min-width	| Sets the minimum width for an element.
+|object-fit	| Specifies how an image or video fits inside a container.
+|object-position	| Specifies the image or video position inside a container.
+|opacity	| Sets the opacity (transparency) of the element.
+|order	| Specifies the order of an item in a flex container.
+|outline	| Adds an outline (highlighted border) to an element.
+|outline-color	| Sets the color of an outline.
+|outline-offset	| Sets the space between the outline and border.
+|outline-style	| Sets the style of an outline.
+|outline-width	| Sets the width of an outline.
+|overflow	| Specifies the flow of content that exceeds the container.
+|overflow-x	| Specifies the flow of content that exceeds the container width.
+|overflow-y	| Specifies the flow of content that exceeds the container height.
+|padding |	Sets the spacing between content and element border.
+|padding-bottom	| Sets the spacing between content and bottom element border.
+|padding-left	| Sets the spacing between content and left element border.
+|padding-right	| Sets the spacing between content and right element border.
+|padding-top	| Sets the spacing between content and top element border.
+|page-break-after	| Adds a print page-break after an element.
+|page-break-before	| Adds a print page-break before an element.
+|page-break-inside	| Specifies if print page-break is allowed inside an element.
+|perspective	| Adds perspective to a 3D-positioned element.
+|perspective-origin |	Sets the origin of the perspective for a 3D-positioned element.
+|pointer-events	| Specifies whether element reacts to pointer events or not.
+|position	| Sets the element's positioning method.
+|quotes	| Defines the quotation marks to be used on text.
+|right	| Positions the element from the right of the relative container.
+|scroll-behavior |	Specifies the scrolling behavior of an element
+|table-layout	| Aligns elements according to a table with rows and columns.
+|text-align	| Sets the alignment of text inside an element.
+|text-align-last	| Sets the alignment for the last line of text.
+|text-decoration	| Defines the style and color of underlined text.
+|text-decoration-color	| Defines the color of underlined text.
+|text-decoration-line	| Defines the kind of line to use with text.
+|text-decoration-style	| Defines the style of underlined text.
+|text-indent	| Sets the indentation to the beginning of text.
+|text-justify	| Defines the text justification inside a container.
+|text-overflow	| Sets the display behavior of text that overflows a container.
+|text-shadow	| Adds a shadow effect to text.
+|text-transform |	Defines text capitalization or casing.
+|top	| Positions the element from the top of the relative container
+|transform	| Applies a 2D or 3D transformation to an element.
+|transform-origin	| Sets the origin for the transformation of the element.
+|transform-style	| Specifies the display behavior of 3D space nested elements.
+|transition	| Creates transitions from one property value to another.
+|transition-delay	| Creates a delay before the transition effect starts.
+|transition-duration |	Specifies the time the transition will take.
+|transition-property	| Specifies the CSS property that will transition.
+|transition-timing-function |	Defines the speed curve function of the transition.
+|user-select |	Specifies how text can be selected (highlighted)
+|vertical-align	| Specifies vertical alignment of an element.
+|visibility	| Specifies the visibility of an element.
+|white-space	| Specifies how white-space is handled inside an element.
+|width	| Sets the width of an element.
+|word-break	| Specifies how line breaks take place.
+|word-spacing	| Sets the spacing between words.
+|word-wrap	| Specifies how long words can be wrapped.
+|writing-mode |	Sets the text reading orientation: top to bottom, etc.
+|z-index	| Sets the vertical stacking order relative to other elements.
 
 
 ```
