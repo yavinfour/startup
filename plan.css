@@ -51,7 +51,9 @@ body {
   .notify {
     padding-right: 10px;
     padding-top: 10px;
-    
+    h1{
+      margin: 15px;
+    }
     display: flex;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: space-between;
@@ -140,7 +142,7 @@ body {
 
     }
 
-    .dbinfo {
+    #dbinfo {
       margin-left: auto;
     }
 
