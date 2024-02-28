@@ -1,54 +1,69 @@
-window.states = Object.freeze([
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
-  "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
-  "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
-  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", 
-  "Massachusets", "Michigan", "Minnesota", "Missouri", "Mississippi", 
-  "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", 
-  "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", 
-  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
-  "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", 
-  "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-]);
+  let allStates = Object.freeze([
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+    "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
+    "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
+    "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", 
+    "Massachusets", "Michigan", "Minnesota", "Missouri", "Mississippi", 
+    "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", 
+    "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", 
+    "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
+    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", 
+    "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+  ]);
 
-people = [
-  "Stacie", "Martin", "Jade", "Charlie", "Nancy",
-  "Louis", "Rylee", "Will", "Brooke", "Kaden", 
-  "Gina", "Derek", "Penny", "Tony", "Allie"
-];
+  allPeople = [
+    "Stacie", "Martin", "Jade", "Charlie", "Nancy",
+    "Louis", "Rylee", "Will", "Brooke", "Kaden", 
+    "Gina", "Derek", "Penny", "Tony", "Allie"
+  ];
 
-window.stateFact = Object.freeze([
-  "Alabama is considered part of the south", "Alaska is super cold and there are bears", "Arizona is the only place where saguaro cacti grow naturally", 
-  "Arkansas is pronounced different than Kansas", "California is a costal state famous for its oranges", 
-  "Colorado is a popular ski location", "Connecticut is super tiny", "Deleware has a lot of US history", "Florida contains the first settled city in America", 
-  "Georgia is famous for its peaches", "Hawaii is a popular tourist destination with lots of surfing", "Idaho grows a lot of potatoes", 
-  "Illinois was home to the saints for a few years before they were kicked out", "Indiana has the famous indie 500 race", "Iowa is a large farm state", 
-  "Kansas grows a lot of wheat", "Kentucky fried chicken", "Louisiana home of the Mardi Gras carnival", "Maine has the best lobster sandwiches", 
-  "Maryland is where the capital of the US is found", "Massachusets has Boston which is pretty cool", "Michigan has a lot of lakes", "Minnesota is close to Canada", 
-  "Missouri is home to the Gateway Arch", "Mississippi is used for counting", "Montana has a childrens play program that travels the world", 
-  "Nebraska has the worlds coolest zoo", "Nevada is most famously known for its city Las Vegas", "New Hampshire looks like an upside down Vermont", 
-  "New Jersey is buddies with New York", "New Mexico has a hot air balloon festival every year", "New York has one of the most famous parks in America", 
-  "North Carolina is home to Kitty Hawk island where the Wright brothers had their first successful flight", "North Dakota maybe has mount Rushmore?", 
-  "Ohio state is an enemy of Michigan I think", "Oklahoma looks like a frying pan", "Oregon has the Tillamook cheese factory which is more famous than Wisconsin cheese", 
-  "Pennsylvania is home to the Liberty Bell", "Rhode Island is even smaller than Connecticut", "South Carolina has really good pulled pork (better than Texas)", 
-  "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas is a hick state", "Utah has a bunch of seagulls :)", 
-  "Vermont looks like an upside down New Hampshire", "Virginia is covered in beautiful green forests", "Washington  has the same vibes as England", 
-  "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
-]);
+  stateFacts = Object.freeze([
+    "Alabama is considered part of the south", "Alaska is super cold and there are bears", "Arizona is the only place where saguaro cacti grow naturally", 
+    "Arkansas is pronounced different than Kansas", "California is a costal state famous for its oranges", 
+    "Colorado is a popular ski location", "Connecticut is super tiny", "Deleware has a lot of US history", "Florida contains the first settled city in America", 
+    "Georgia is famous for its peaches", "Hawaii is a popular tourist destination with lots of surfing", "Idaho grows a lot of potatoes", 
+    "Illinois was home to the saints for a few years before they were kicked out", "Indiana has the famous indie 500 race", "Iowa is a large farm state", 
+    "Kansas grows a lot of wheat", "Kentucky fried chicken", "Louisiana home of the Mardi Gras carnival", "Maine has the best lobster sandwiches", 
+    "Maryland is where the capital of the US is found", "Massachusets has Boston which is pretty cool", "Michigan has a lot of lakes", "Minnesota is close to Canada", 
+    "Missouri is home to the Gateway Arch", "Mississippi is used for counting", "Montana has a childrens play program that travels the world", 
+    "Nebraska has the worlds coolest zoo", "Nevada is most famously known for its city Las Vegas", "New Hampshire looks like an upside down Vermont", 
+    "New Jersey is buddies with New York", "New Mexico has a hot air balloon festival every year", "New York has one of the most famous parks in America", 
+    "North Carolina is home to Kitty Hawk island where the Wright brothers had their first successful flight", "North Dakota maybe has mount Rushmore?", 
+    "Ohio state is an enemy of Michigan I think", "Oklahoma looks like a frying pan", "Oregon has the Tillamook cheese factory which is more famous than Wisconsin cheese", 
+    "Pennsylvania is home to the Liberty Bell", "Rhode Island is even smaller than Connecticut", "South Carolina has really good pulled pork (better than Texas)", 
+    "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas is a hick state", "Utah has a bunch of seagulls :)", 
+    "Vermont looks like an upside down New Hampshire", "Virginia is covered in beautiful green forests", "Washington  has the same vibes as England", 
+    "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
+  ]);
 
-window.pokedex = 0;
-window.favArray = new Set();
+  let pokedex = 0;
+  let favArray = new Set();
 
-window.setFavArray = () => {
-favArray.add(pokedex);
-console.log(pokedex);
-console.log('favArray:', Array.from(favArray));
-alert(`${states[pokedex]} was added as a favorite`)
-}
+  const setFavArray = () => {
+  favArray.add(pokedex);
+  console.log(pokedex);
+  console.log('favArray:', Array.from(favArray));
+  localStorage.setItem("favorites", JSON.stringify([...favArray]));
+  alert(`${allStates[pokedex]} was added as a favorite`)
+  }
 
-window.resetFavArray = () => {
-favArray = new Set();
-}
+  const resetFavArray = () => {
+  favArray = new Set();
+  }
+
+  const setPokedex = (index) => {
+    pokedex = index;
+    localStorage.setItem("pokedex", pokedex);
+  };
+
+  
+  localStorage.setItem("pokedex", pokedex);
+  localStorage.setItem("states", JSON.stringify([(allStates)]));
+  localStorage.setItem("people", allPeople);
+  localStorage.setItem("stateFact", JSON.stringify([(stateFacts)]));
+  localStorage.setItem("favorites", JSON.stringify([...favArray]));
+
+  // window.location.href = "favs.html";
 
 class Plan {
 
@@ -71,7 +86,7 @@ setInterval(() => {
   const score = Math.floor(Math.random() * 49);
   const chatText = document.querySelector('#user-messages');
   chatText.innerHTML =
-    `<div class="note"><span class="user-event">${people[person]}</span> added ${states[score]}</div>` +
+    `<div class="note"><span class="user-event">${allPeople[person]}</span> added ${allStates[score]}</div>` +
     chatText.innerHTML;
 }, 5000);
 
@@ -83,12 +98,15 @@ Then we're going to create a card using that information (the name will be found
   Then we just plug those strings in as information for the card.*/
 
 function stateInfo(index) {
-  const state = states[index];
+
+  pokedex = index;
+
+  const state = allStates[index];
   const newFacts = document.querySelector('#dbinfo');
 
   const existingCard = document.querySelector('.card');
   if (existingCard) {
-      existingCard.remove();
+    existingCard.remove();
   }
 
   const card = document.createElement('div');
@@ -113,7 +131,7 @@ function stateInfo(index) {
 
   const cardText = document.createElement('p');
   cardText.classList.add('card-text');
-  cardText.textContent = `${stateFact[index]}`;
+  cardText.textContent = `${stateFacts[index]}`;
   
   cardTitle.appendChild(badge);
   cardBody.appendChild(cardTitle);

@@ -25,14 +25,64 @@ populateCards();
 });
 
 function populateCards() {
+  // Retrieve favorites array from localStorage
+  let storedFavorites;
+  try {
+    storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    if (!Array.isArray(storedFavorites)) {
+      throw new Error('Invalid JSON format');
+    }
+    // Convert stored numbers from string to actual numbers
+    storedFavorites = storedFavorites.map(Number);
+  } catch (error) {
+    console.error('Error parsing stored favorites:', error);
+    storedFavorites = [];
+  }
+  
+  // Convert to Set
+  favArray = new Set(storedFavorites);
+
+// Retrieve states array from localStorage
+
+let storedStates;
+  try {
+    storedStates = JSON.parse(localStorage.getItem('states')) ?? [];
+    if (!Array.isArray(storedStates)) {
+      throw new Error('Invalid JSON format');
+    }
+    // Convert stored numbers from string to actual numbers
+  } catch (error) {
+    console.error('Error parsing stored favorites:', error);
+    storedStates = [];
+  }
+
+  states = storedStates;
+// Retrieve stateFacts array from localStorage
+
+let storedFacts;
+  try {
+    storedFacts = JSON.parse(localStorage.getItem('stateFact')) ?? [];
+    if (!Array.isArray(storedFacts)) {
+      throw new Error('Invalid JSON format');
+    }
+    // Convert stored numbers from string to actual numbers
+  } catch (error) {
+    console.error('Error parsing stored favorites:', error);
+    storedFacts = [];
+  }
+
+  stateFacts = storedFacts;
+
+
 console.log('favArray:', Array.from(favArray));
 
   const newFacts = document.querySelector('#dbinfo');
   const existingCards = document.querySelectorAll('.card');
-  
 existingCards.forEach(card => card.remove());
 
 for (const index of favArray) {
+  state = states[index];
+  console.log(`${state}`);
   const card = document.createElement('div');
   card.classList.add('card');
   card.style.width = '300px';
@@ -55,7 +105,7 @@ for (const index of favArray) {
 
   const cardText = document.createElement('p');
   cardText.classList.add('card-text');
-  cardText.textContent = `${stateFact[index]}`;
+  cardText.textContent = `${stateFacts[index]}`;
   
   cardTitle.appendChild(badge);
   cardBody.appendChild(cardTitle);
