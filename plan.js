@@ -1,4 +1,4 @@
-window.states = [
+window.states = Object.freeze([
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
   "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
   "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
@@ -9,7 +9,7 @@ window.states = [
   "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
   "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", 
   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-];
+]);
 
 people = [
   "Stacie", "Martin", "Jade", "Charlie", "Nancy",
@@ -17,7 +17,7 @@ people = [
   "Gina", "Derek", "Penny", "Tony", "Allie"
 ];
 
-window.stateFact = [
+window.stateFact = Object.freeze([
   "Alabama is considered part of the south", "Alaska is super cold and there are bears", "Arizona is the only place where saguaro cacti grow naturally", 
   "Arkansas is pronounced different than Kansas", "California is a costal state famous for its oranges", 
   "Colorado is a popular ski location", "Connecticut is super tiny", "Deleware has a lot of US history", "Florida contains the first settled city in America", 
@@ -34,13 +34,15 @@ window.stateFact = [
   "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas is a hick state", "Utah has a bunch of seagulls :)", 
   "Vermont looks like an upside down New Hampshire", "Virginia is covered in beautiful green forests", "Washington  has the same vibes as England", 
   "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
-];
+]);
 
 window.pokedex = 0;
 window.favArray = new Set();
 
 window.setFavArray = () => {
 favArray.add(pokedex);
+console.log(pokedex);
+console.log('favArray:', Array.from(favArray));
 alert(`${states[pokedex]} was added as a favorite`)
 }
 
@@ -83,7 +85,7 @@ Then we're going to create a card using that information (the name will be found
 function stateInfo(index) {
   const state = states[index];
   const newFacts = document.querySelector('#dbinfo');
-  
+
   const existingCard = document.querySelector('.card');
   if (existingCard) {
       existingCard.remove();

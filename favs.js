@@ -25,13 +25,14 @@ populateCards();
 });
 
 function populateCards() {
-for (const index of favArray) {
-  const state = states[index];
+console.log('favArray:', Array.from(favArray));
+
   const newFacts = document.querySelector('#dbinfo');
-  
   const existingCards = document.querySelectorAll('.card');
+  
 existingCards.forEach(card => card.remove());
 
+for (const index of favArray) {
   const card = document.createElement('div');
   card.classList.add('card');
   card.style.width = '300px';
