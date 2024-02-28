@@ -1,4 +1,4 @@
-  let allStates = Object.freeze([
+  let allStates = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
     "Colorado", "Connecticut", "Deleware", "Florida", "Georgia", 
     "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
@@ -9,7 +9,7 @@
     "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
     "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", 
     "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-  ]);
+  ];
 
   allPeople = [
     "Stacie", "Martin", "Jade", "Charlie", "Nancy",
@@ -17,7 +17,7 @@
     "Gina", "Derek", "Penny", "Tony", "Allie"
   ];
 
-  stateFacts = Object.freeze([
+  stateFacts = [
     "Alabama is considered part of the south", "Alaska is super cold and there are bears", "Arizona is the only place where saguaro cacti grow naturally", 
     "Arkansas is pronounced different than Kansas", "California is a costal state famous for its oranges", 
     "Colorado is a popular ski location", "Connecticut is super tiny", "Deleware has a lot of US history", "Florida contains the first settled city in America", 
@@ -34,7 +34,7 @@
     "South Dakota probably actually has Mount Rushmore", "Tennessee has the Smokies", "Texas is a hick state", "Utah has a bunch of seagulls :)", 
     "Vermont looks like an upside down New Hampshire", "Virginia is covered in beautiful green forests", "Washington  has the same vibes as England", 
     "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
-  ]);
+  ];
 
   let pokedex = 0;
   let favArray = new Set();
@@ -58,9 +58,9 @@
 
   
   localStorage.setItem("pokedex", pokedex);
-  localStorage.setItem("states", JSON.stringify([(allStates)]));
+  localStorage.setItem("states", JSON.stringify((allStates)));
   localStorage.setItem("people", allPeople);
-  localStorage.setItem("stateFact", JSON.stringify([(stateFacts)]));
+  localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
   localStorage.setItem("favorites", JSON.stringify([...favArray]));
 
   // window.location.href = "favs.html";
