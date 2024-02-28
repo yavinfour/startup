@@ -40,11 +40,13 @@ body {
         }
       }
     }
-    p {
+    .users {
       border: solid;
       border-color:rgb(136, 68, 146);
       border-width: 2px;
       border-style:dotted;
+      padding-left:10px;
+      padding-right: 10px;
     }
   }
 

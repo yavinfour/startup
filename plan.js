@@ -48,25 +48,20 @@ window.resetFavArray = () => {
 favArray = new Set();
 }
 
-class Game {
-  buttons;
-  allowPlayer;
-  sequence;
-  playerPlaybackPos;
-  mistakeSound;
+class Plan {
 
   constructor() {
 
-    const playerNameEl = document.querySelector('.player-name');
-        playerNameEl.textContent = this.getPlayerName();
+    const userNameEl = document.querySelector('.user-name');
+        userNameEl.textContent = this.getUserName();
     }
 
-    getPlayerName() {
+    getUserName() {
         return localStorage.getItem('userName') ?? 'New User';
     }
 }
 
-const game = new Game();
+const planner = new Plan();
 
 // Simulate chat messages that will come over WebSocket
 setInterval(() => {
