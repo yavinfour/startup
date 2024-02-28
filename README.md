@@ -57,10 +57,10 @@ I am going to use the required technologies in the following ways.
 ### Application images - All the images show in the format that they should
 ## JavaScript deliverable
 
-### login - 
-### database - 
-### WebSocket - 
-### application logic - 
+### login - The java script support for the login is provided and the username is stored and preserved through the program
+### database - Information from the database is represented with local variables, if you add favorites on the plan page and then click on the favorites page you will see how they are added. However, because they are only local variables at this point, they are reloaded when you return to the plan page and you will have to select them again.
+### WebSocket - Notifications are simulated from other users (click the notification button for a dropdown and click again to close) There is also an instantaneous notification when you add a state to favorites
+### application logic - The logic of this application requires that cards are shown at the bottom of the plan page when you click a state button, and that is provided for. Once you have clicked on a state you can also click the add to favorites button (make sure you click the heart) and that information will be sent to the favs page. The favs page will then print out all of the cards corresponding to your favorite information
 ## Service deliverable
 
 ### Node.js/Express HTTP service - 
