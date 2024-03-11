@@ -1,5 +1,3 @@
-app.use(express.static('public'));
-
 const express = require('express');
 const app = express();
 
