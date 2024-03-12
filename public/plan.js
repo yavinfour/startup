@@ -39,13 +39,13 @@
   let pokedex = 0;
   let favArray = new Set();
 
-  const setFavArray = () => {
-  favArray.add(pokedex);
-  console.log(pokedex);
-  console.log('favArray:', Array.from(favArray));
-  localStorage.setItem("favorites", JSON.stringify([...favArray]));
-  alert(`${allStates[pokedex]} was added as a favorite`)
-  }
+  // const setFavArray = () => {
+  // favArray.add(pokedex);
+  // console.log(pokedex);
+  // console.log('favArray:', Array.from(favArray));
+  // localStorage.setItem("favorites", JSON.stringify([...favArray]));
+  // alert(`${allStates[pokedex]} was added as a favorite`)
+  // }
 
   const resetFavArray = () => {
   favArray = new Set();
@@ -142,6 +142,19 @@ function stateInfo(index) {
 
   newFacts.insertBefore(card, newFacts.firstChild);
   pokedex = index;
+}
+
+async function setFavArray() {
+  const newFav = pokedex;
+  try {
+    const response = await fetch('/api/fav', {
+      method: 'POST', 
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(newFav),
+    });
+  } catch {
+    console.error("You failed in your quest. Error: ", error);
+  }
 }
 
 function addIndex() {
