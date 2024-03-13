@@ -130,6 +130,8 @@ async function deleteAll() {
   }catch (error) {
     console.error("You failed in your quest. Error: ", error);
   }
+
+  location.reload();
 }
 
 function addIndex() {

@@ -19,7 +19,9 @@ app.use(`/api`, apiRouter);
 let favs = [];
 try {
   const favoritesData = await fs.readFile('favs.json', 'utf-8');
-  favs = JSON.parse(favoritesData);
+  if (favoritesData) {
+    favs = JSON.parse(favoritesData);
+  }
 } catch (error) {
   console.error('Error reading favorites file:', error);
 }
@@ -79,15 +81,23 @@ async function updateFavs(newFav, oldFavs) {
   }
 
   // Save the updated favorites to a file
-  await fs.writeFile('favs.json', JSON.stringify(existingFavs));
+  if (existingFavs.length > 0) {
+    await fs.writeFile('favs.json', JSON.stringify(existingFavs));
+  }
 
   return existingFavs;
 }
 
 async function clearFavs() {
-  await fs.writeFile('favs.json', JSON.stringify([new Set()]));
+  try {
+    await fs.writeFile('favs.json', '[]');
+    console.log('favs.json cleared successfully.');
+    return [];
+  } catch (error) {
+    console.error('Error clearing favorites:', error);
+    return [];
+  }
 }
-
 }
 
 startServer();

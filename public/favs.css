@@ -50,11 +50,14 @@ body {
   }
 
   main {
-    h1 {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .text {
+        align-self: center;
+      }
       button{
+        align-self: right;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: x-small;
         text-align: center;
@@ -63,9 +66,8 @@ body {
         color:rgb(39, 16, 43);
         text-decoration: none;
         padding:10px;
-        margin-left:auto;
+        margin-left: auto;
       }
-    }
     padding:15px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: justify;
@@ -78,6 +80,7 @@ body {
     card{
       display:flex;
       flex-direction: row;
+      flex: 0 0 auto;
     }
   }
   

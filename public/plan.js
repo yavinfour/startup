@@ -155,7 +155,9 @@ async function setFavArray() {
 
     const existingFavs = await resp.json();
     console.log('existingFavs: ', existingFavs);
-    let favArray = [...new Set(existingFavs)];
+    // Check if the response is not empty
+
+    let favArray = Array.isArray(existingFavs) ? [...new Set(existingFavs)] : [];
 
     favArray.push(newFav);
 
