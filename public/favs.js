@@ -24,23 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
 populateCards();
 });
 
-function populateCards() {
+async function populateCards() {
   // Retrieve favorites array from localStorage
-  let storedFavorites;
+  let favArray = [];
   try {
-    storedFavorites = JSON.parse(localStorage.getItem('favorites'));
-    if (!Array.isArray(storedFavorites)) {
-      throw new Error('Invalid JSON format');
-    }
-    // Convert stored numbers from string to actual numbers
-    storedFavorites = storedFavorites.map(Number);
+    // Fetch favArray from the backend
+    const response = await fetch('/api/favs');
+    if (!response.ok) {
+      throw new Error('Failed to fetch favArray from the backend');
+    } 
+    favArray = await response.json();
+    favArray = new Set(favArray);
   } catch (error) {
-    console.error('Error parsing stored favorites:', error);
-    storedFavorites = [];
+    console.error("You failed in your quest. Error: ", error);
   }
   
   // Convert to Set
-  favArray = new Set(storedFavorites);
+
+  
 
 // Retrieve states array from localStorage
 
@@ -116,6 +117,19 @@ for (const index of favArray) {
 
   newFacts.appendChild(card);
 }
+}
+
+async function deleteAll() {
+  try {
+    const resp = await fetch('/api/favs', {
+      method: 'DELETE',
+    });
+    if (!resp.ok) {
+      throw new Error('Failed to fetch favorites from the backend');
+    }
+  }catch (error) {
+    console.error("You failed in your quest. Error: ", error);
+  }
 }
 
 function addIndex() {

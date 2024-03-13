@@ -37,7 +37,6 @@
   ];
 
   let pokedex = 0;
-  let favArray = new Set();
 
   // const setFavArray = () => {
   // favArray.add(pokedex);
@@ -61,7 +60,6 @@
   localStorage.setItem("states", JSON.stringify((allStates)));
   localStorage.setItem("people", allPeople);
   localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
-  localStorage.setItem("favorites", JSON.stringify([...favArray]));
 
   // window.location.href = "favs.html";
 
@@ -147,12 +145,30 @@ function stateInfo(index) {
 async function setFavArray() {
   const newFav = pokedex;
   try {
-    const response = await fetch('/api/fav', {
-      method: 'POST', 
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify(newFav),
+
+    const resp = await fetch('/api/favs', {
+      method: 'GET',
     });
-  } catch {
+    if (!resp.ok) {
+      throw new Error('Failed to fetch favorites from the backend');
+    }
+
+    const existingFavs = await resp.json();
+    console.log('existingFavs: ', existingFavs);
+    let favArray = [...new Set(existingFavs)];
+
+    favArray.push(newFav);
+
+    const response = await fetch('/api/fav', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ newFav: newFav, existingFavs: favArray }),
+    });
+
+    console.log('favArray:', favArray);
+    alert(`${allStates[pokedex]} was added as a favorite`);
+
+  } catch (error) {
     console.error("You failed in your quest. Error: ", error);
   }
 }
