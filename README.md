@@ -63,11 +63,11 @@ I am going to use the required technologies in the following ways.
 ### application logic - The logic of this application requires that cards are shown at the bottom of the plan page when you click a state button, and that is provided for. Once you have clicked on a state you can also click the add to favorites button (make sure you click the heart) and that information will be sent to the favs page. The favs page will then print out all of the cards corresponding to your favorite information
 ## Service deliverable
 
-### Node.js/Express HTTP service - 
-### Static middleware for frontend - 
-### Calls to third party endpoints - 
-### Backend service endpoints - 
-### Frontend calls service endpoints - 
+### Node.js/Express HTTP service - Done, you can tell because your favorites are stored (you can clear them in the favorites section)
+### Static middleware for frontend - Done
+### Calls to third party endpoints - Done, the api at the bottom of the plan page connects to SeatGeek and you can get tickets
+### Backend service endpoints - Done
+### Frontend calls service endpoints - Done
 ## DB/Login deliverable
 
 ### MongoDB Atlas database created - 

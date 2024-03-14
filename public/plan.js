@@ -180,15 +180,12 @@ function addIndex() {
 }
 
 
-// Function to fetch events based on user input
 document.getElementById("searchBtn").addEventListener("click", function() {
   const searchQuery = document.getElementById("searchQuery").value;
 
-  // Call the fetchEvents function with the specified search query
   fetchEvents(searchQuery);
 });
 
-// Function to fetch events from SeatGeek API
 async function fetchEvents(searchQuery) {
   try {
     const apiKey = "NDAzODMyNTB8MTcxMDM2Njg1MS41MTI5NTY5";
@@ -213,12 +210,9 @@ async function fetchEvents(searchQuery) {
   }
 }
 
-// Function to display events on the webpage
-// Function to display events on the webpage
 function displayEvents(events) {
   const eventsContainer = document.getElementById("eventsContainer");
 
-  // Clear previous events
   eventsContainer.innerHTML = "";
 
   // Display each event
@@ -238,13 +232,13 @@ function displayEvents(events) {
     const ticketUrl = document.createElement("a");
     ticketUrl.textContent = "Get Tickets";
     ticketUrl.href = event.url;
-    ticketUrl.target = "_blank"; // Open link in a new tab
-    ticketUrl.rel = "noopener noreferrer"; // Security best practice
+    ticketUrl.target = "_blank";
+    ticketUrl.rel = "noopener noreferrer"; // Security thingy
 
     eventElement.appendChild(eventName);
     eventElement.appendChild(eventDate);
     eventElement.appendChild(eventVenue);
-    eventElement.appendChild(ticketUrl); // Append ticket URL link
+    eventElement.appendChild(ticketUrl);
 
     eventsContainer.appendChild(eventElement);
   });
