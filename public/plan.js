@@ -180,18 +180,41 @@ function addIndex() {
 }
 
 
-document.getElementById("fetchEventsBtn").addEventListener("click", fetchEvents);
+// Function to fetch events based on user input
+document.getElementById("searchBtn").addEventListener("click", function() {
+  const searchQuery = document.getElementById("searchQuery").value;
 
-function fetchEvents() {
-  const apiKey = "NDAzODMyNTB8MTcxMDM2Njg1MS41MTI5NTY5";
-  const apiUrl = "https://api.seatgeek.com/2/events";
+  // Call the fetchEvents function with the specified search query
+  fetchEvents(searchQuery);
+});
 
-  fetch(`${apiUrl}?client_id=${apiKey}`)
-    .then(response => response.json())
-    .then(data => displayEvents(data.events))
-    .catch(error => console.error('Error fetching events:', error));
+// Function to fetch events from SeatGeek API
+async function fetchEvents(searchQuery) {
+  try {
+    const apiKey = "NDAzODMyNTB8MTcxMDM2Njg1MS41MTI5NTY5";
+    const apiUrl = "https://api.seatgeek.com/2/events";
+
+    // Construct the query string with the search query parameter
+    const queryString = `?client_id=${apiKey}&q=${searchQuery}`;
+
+    const response = await fetch(`${apiUrl}${queryString}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    if (!data.events) {
+      throw new Error('No events found in API response');
+    }
+    
+    displayEvents(data.events);
+  } catch (error) {
+    console.error('Error fetching events:', error);
+  }
 }
 
+// Function to display events on the webpage
+// Function to display events on the webpage
 function displayEvents(events) {
   const eventsContainer = document.getElementById("eventsContainer");
 
@@ -212,14 +235,20 @@ function displayEvents(events) {
     const eventVenue = document.createElement("p");
     eventVenue.textContent = `Venue: ${event.venue.name}`;
 
+    const ticketUrl = document.createElement("a");
+    ticketUrl.textContent = "Get Tickets";
+    ticketUrl.href = event.url;
+    ticketUrl.target = "_blank"; // Open link in a new tab
+    ticketUrl.rel = "noopener noreferrer"; // Security best practice
+
     eventElement.appendChild(eventName);
     eventElement.appendChild(eventDate);
     eventElement.appendChild(eventVenue);
+    eventElement.appendChild(ticketUrl); // Append ticket URL link
 
     eventsContainer.appendChild(eventElement);
   });
 }
-
 /* For the favorites, I can keep track of what the index is
 and then if they click the favorites button I can add it to a 
 set of indexes. Then that set will populate information when we 

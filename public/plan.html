@@ -227,10 +227,14 @@
       
       <div class="apiEvents"> 
         <h3>Find events here!</h3>
-        <button id="fetchEventsBtn">
-          <p>Event API</p>
-        </button>
-        <div id="eventsContainer"></div>
+        <body>
+          <label for="searchQuery">Event Keyword:</label>
+          <input type="text" id="searchQuery" name="searchQuery">
+        
+          <button id="searchBtn">Search</button>
+        
+          <div id="eventsContainer"></div>
+        </body>
       </div>
 
     </main>
