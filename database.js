@@ -1,5 +1,5 @@
 const config = require('./dbConfig.json');
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}.gm4fsbn.mongodb.net`;
 
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
