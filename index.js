@@ -19,7 +19,7 @@ app.use(express.static('public'));
 app.set('trust proxy', true);
 
 // Router for service endpoints
-const apiRouter = express.Router();
+var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // Initialize favs by reading from the file or using an empty array if the file doesn't exist
@@ -114,6 +114,25 @@ apiRouter.post('/fav', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
+// Default error handler
+app.use(function (err, req, res, next) {
+  res.status(500).send({ type: err.name, message: err.message });
+});
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
 
 apiRouter.delete('/favs', async (req, res) => {
   try {
