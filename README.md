@@ -70,12 +70,12 @@ I am going to use the required technologies in the following ways.
 ### Frontend calls service endpoints - Done
 ## DB/Login deliverable
 
-### MongoDB Atlas database created - 
-### Stores data in MongoDB - 
-### User registration - 
-### existing user - 
-### Use MongoDB to store credentials - 
-### Restricts functionality - 
+### MongoDB Atlas database created - Done
+### Stores data in MongoDB - Done
+### User registration - Done
+### existing user - Done
+### Use MongoDB to store credentials - Done
+### Restricts functionality - Done
 ## WebSocket deliverable
 
 ### Backend listens for WebSocket connection - 
