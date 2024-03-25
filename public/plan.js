@@ -37,6 +37,7 @@
   ];
 
   let pokedex = 0;
+  const addedFav = 'addedFav';
 
   // const setFavArray = () => {
   // favArray.add(pokedex);
@@ -65,119 +66,136 @@
 
 class Plan {
 
+  socket;
+
   constructor() {
 
     const userNameEl = document.querySelector('.user-name');
-        userNameEl.textContent = this.getUserName();
+    userNameEl.textContent = this.getUserName();
+
+    this.configureWebSocket();
+  }
+
+  configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    this.socket.onopen = (event) => {
+      this.displayMsg('system', 'plan', 'connected');
+    };
+    this.socket.onclose = (event) => {
+      this.displayMsg('system', 'plan', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === addedFav) {
+        this.displayMsg('user', msg.from, `added ${allStates[msg.value.fav]}`);
+      }// else if (msg.type === GameStartEvent) {
+      //   this.displayMsg('user', msg.from, `started a new game`);
+      // }
+    };
+  }
+
+  displayMsg(cls, from, msg) {
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+      `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+
+  broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+  }
+
+  stateInfo(index) {
+
+    pokedex = index;
+
+    const state = allStates[index];
+    const newFacts = document.querySelector('#dbinfo');
+
+    const existingCard = document.querySelector('.card');
+    if (existingCard) {
+      existingCard.remove();
     }
 
-    getUserName() {
-        return localStorage.getItem('userName') ?? 'New User';
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '300px';
+    card.style.marginLeft = 'auto';
+
+    const stateImage = document.createElement('img');
+    stateImage.classList.add('state');
+    stateImage.src = `US States/${state}.png`;
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const cardTitle = document.createElement('h4');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = `${state}`;
+
+    const badge = document.createElement('span');
+    badge.classList.add('badge', 'bg-secondary');
+    badge.textContent = 'State';
+
+    const cardText = document.createElement('p');
+    cardText.classList.add('card-text');
+    cardText.textContent = `${stateFacts[index]}`;
+    
+    cardTitle.appendChild(badge);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+
+    card.appendChild(stateImage);
+    card.appendChild(cardBody);
+
+    newFacts.insertBefore(card, newFacts.firstChild);
+    pokedex = index;
+  }
+
+  async setFavArray() {
+    const newFav = pokedex;
+    try {
+
+      const resp = await fetch('/api/favs', {
+        method: 'GET',
+      });
+      if (!resp.ok) {
+        throw new Error('Failed to fetch favorites from the backend');
+      }
+
+      const existingFavs = await resp.json();
+      console.log('existingFavs: ', existingFavs);
+      // Check if the response is not empty
+
+      let favArray = Array.isArray(existingFavs) ? [...new Set(existingFavs)] : [];
+
+      favArray.push(newFav);
+
+      const response = await fetch('/api/fav', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ newFav: newFav, existingFavs: favArray }),
+      });
+
+      console.log('favArray:', favArray);
+      alert(`${allStates[pokedex]} was added as a favorite`);
+
+    } catch (error) {
+      console.error("You failed in your quest. Error: ", error);
     }
+  }
+
+  addIndex() {
+    setFavArray();
+  }
 }
 
 const planner = new Plan();
-
-// Simulate chat messages that will come over WebSocket
-setInterval(() => {
-  const person = Math.floor(Math.random() * 14);
-  const score = Math.floor(Math.random() * 49);
-  const chatText = document.querySelector('#user-messages');
-  chatText.innerHTML =
-    `<div class="note"><span class="user-event">${allPeople[person]}</span> added ${allStates[score]}</div>` +
-    chatText.innerHTML;
-}, 5000);
-
-
-/* This function is going to take in a parameter given when you click on a specific box.
-Normally this would call data from the database but for js we're hardcoding information 
-Then we're going to create a card using that information (the name will be found using the index
-  on the states array and the info same idea on the info array)
-  Then we just plug those strings in as information for the card.*/
-
-function stateInfo(index) {
-
-  pokedex = index;
-
-  const state = allStates[index];
-  const newFacts = document.querySelector('#dbinfo');
-
-  const existingCard = document.querySelector('.card');
-  if (existingCard) {
-    existingCard.remove();
-  }
-
-  const card = document.createElement('div');
-  card.classList.add('card');
-  card.style.width = '300px';
-  card.style.marginLeft = 'auto';
-
-  const stateImage = document.createElement('img');
-  stateImage.classList.add('state');
-  stateImage.src = `US States/${state}.png`;
-
-  const cardBody = document.createElement('div');
-  cardBody.classList.add('card-body');
-
-  const cardTitle = document.createElement('h4');
-  cardTitle.classList.add('card-title');
-  cardTitle.textContent = `${state}`;
-
-  const badge = document.createElement('span');
-  badge.classList.add('badge', 'bg-secondary');
-  badge.textContent = 'State';
-
-  const cardText = document.createElement('p');
-  cardText.classList.add('card-text');
-  cardText.textContent = `${stateFacts[index]}`;
-  
-  cardTitle.appendChild(badge);
-  cardBody.appendChild(cardTitle);
-  cardBody.appendChild(cardText);
-
-  card.appendChild(stateImage);
-  card.appendChild(cardBody);
-
-  newFacts.insertBefore(card, newFacts.firstChild);
-  pokedex = index;
-}
-
-async function setFavArray() {
-  const newFav = pokedex;
-  try {
-
-    const resp = await fetch('/api/favs', {
-      method: 'GET',
-    });
-    if (!resp.ok) {
-      throw new Error('Failed to fetch favorites from the backend');
-    }
-
-    const existingFavs = await resp.json();
-    console.log('existingFavs: ', existingFavs);
-    // Check if the response is not empty
-
-    let favArray = Array.isArray(existingFavs) ? [...new Set(existingFavs)] : [];
-
-    favArray.push(newFav);
-
-    const response = await fetch('/api/fav', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ newFav: newFav, existingFavs: favArray }),
-    });
-
-    console.log('favArray:', favArray);
-    alert(`${allStates[pokedex]} was added as a favorite`);
-
-  } catch (error) {
-    console.error("You failed in your quest. Error: ", error);
-  }
-}
-
-function addIndex() {
-  setFavArray();
-}
 
 
 document.getElementById("searchBtn").addEventListener("click", function() {
@@ -243,6 +261,8 @@ function displayEvents(events) {
     eventsContainer.appendChild(eventElement);
   });
 }
+
+
 /* For the favorites, I can keep track of what the index is
 and then if they click the favorites button I can add it to a 
 set of indexes. Then that set will populate information when we 
