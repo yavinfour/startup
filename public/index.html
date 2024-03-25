@@ -38,7 +38,7 @@
     <main class="container-fluid bg-secondary text-center">
       <div>
         <!-- Displayed when needing authentication -->
-        <div id="loginControls"> <!-- Changed to store user info in db -->
+        <div id="loginControls" style="display: none"> <!-- Changed to store user info in db -->
           <div class="input-group mb-3">
             <span class="input-group-text">&#9993</span>
             <input class="form-control" type="text" id="userName" placeholder="your@email.com" />
@@ -53,7 +53,7 @@
         <!-- Displayed when ready to play -->
         <div id="playControls" style="display: none">
           <div id="playerName"></div>
-          <button type="button" class="btn btn-primary" onclick="play()">Play</button>
+          <button type="button" class="btn btn-primary" onclick="plan()">Plan</button>
           <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
         </div>
       </div>

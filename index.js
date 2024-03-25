@@ -95,12 +95,12 @@ secureApiRouter.use(async (req, res, next) => {
 
 
 // GetFavs
-apiRouter.get('/favs', (_req, res) => {
+secureApiRouter.get('/favs', (_req, res) => {
   res.send(favs);
 });
 
 // SubmitFav
-apiRouter.post('/fav', async (req, res) => {
+secureApiRouter.post('/fav', async (req, res) => {
   try {
     const { newFav, existingFavs } = req.body;
 
@@ -134,7 +134,7 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-apiRouter.delete('/favs', async (req, res) => {
+secureApiRouter.delete('/favs', async (req, res) => {
   try {
 
     // Update the favs array
