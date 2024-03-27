@@ -172,7 +172,9 @@ const planner = new Plan();
       const resp = await fetch('/api/favs', {
         method: 'GET',
       });
+      console.log("try get");
       if (!resp.ok) {
+        console.log("failure");
         throw new Error('Failed to fetch favorites from the backend');
       }
   
@@ -184,7 +186,7 @@ const planner = new Plan();
       favArray.push(newFav);
   
       // Send the updated favorites array to the backend to save
-      const response = await fetch('/api/favs', {
+      const response = await fetch('/api/fav', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(favArray),

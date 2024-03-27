@@ -10,6 +10,9 @@ const db = client.db('traveler');
 const userCollection = db.collection('user');
 const favCollection = db.collection('favs');
 
+// Ensure indexes for efficient querying
+favCollection.createIndex({ userEmail: 1 });
+
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
   await client.connect();
