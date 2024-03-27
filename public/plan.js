@@ -47,10 +47,6 @@
   // alert(`${allStates[pokedex]} was added as a favorite`)
   // }
 
-  const resetFavArray = () => {
-  favArray = new Set();
-  }
-
   const setPokedex = (index) => {
     pokedex = index;
     localStorage.setItem("pokedex", pokedex);
@@ -110,7 +106,14 @@ class Plan {
     this.socket.send(JSON.stringify(event));
   }
 
-  stateInfo(index) {
+  getUserName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+  }
+}
+
+const planner = new Plan();
+
+  function stateInfo(index) {
 
     pokedex = index;
 
@@ -157,45 +160,46 @@ class Plan {
     pokedex = index;
   }
 
-  async setFavArray() {
-    const newFav = pokedex;
+  async function setFavArray() {
+    const newFav = pokedex; // Assuming pokedex contains the new favorite
     try {
-
+      // Fetch existing favorites from the backend
       const resp = await fetch('/api/favs', {
         method: 'GET',
       });
       if (!resp.ok) {
         throw new Error('Failed to fetch favorites from the backend');
       }
-
+  
       const existingFavs = await resp.json();
       console.log('existingFavs: ', existingFavs);
-      // Check if the response is not empty
-
-      let favArray = Array.isArray(existingFavs) ? [...new Set(existingFavs)] : [];
-
+  
+      // Construct the new array of favorites
+      let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
       favArray.push(newFav);
-
-      const response = await fetch('/api/fav', {
+  
+      // Send the updated favorites array to the backend to save
+      const response = await fetch('/api/favs', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ newFav: newFav, existingFavs: favArray }),
+        body: JSON.stringify(favArray),
       });
-
+  
+      if (!response.ok) {
+        throw new Error('Failed to add favorite to the backend');
+      }
+  
       console.log('favArray:', favArray);
       alert(`${allStates[pokedex]} was added as a favorite`);
-
+  
     } catch (error) {
       console.error("You failed in your quest. Error: ", error);
     }
   }
-
-  addIndex() {
+  
+  function addIndex() {
     setFavArray();
   }
-}
-
-const planner = new Plan();
 
 
 document.getElementById("searchBtn").addEventListener("click", function() {
