@@ -75,22 +75,27 @@ class Plan {
   configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    window.socket = this.socket;
     this.socket.onopen = (event) => {
-      this.displayMsg('system', 'plan', 'connected');
+      //this.displayMsg('system', 'plan', 'connected');
+      console.log("ws connected");
     };
     this.socket.onclose = (event) => {
-      this.displayMsg('system', 'plan', 'disconnected');
+      console.log("ws closed");
+      //this.displayMsg('system', 'plan', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
-      const msg = JSON.parse(await event.data.text());
-      if (msg.type === addedFav) {
-        this.displayMsg('user', msg.from, `added ${allStates[msg.value.fav]}`);
-      }// else if (msg.type === GameStartEvent) {
+      const msg = JSON.parse(await event.data.text()); //throwing the json error
+      console.log(msg);
+      // if (msg.type === addedFav) {
+      //   this.displayMsg('user', msg.from, `added ${allStates[msg.value.fav]}`);
+      // }// else if (msg.type === GameStartEvent) {
       //   this.displayMsg('user', msg.from, `started a new game`);
       // }
     };
   }
 
+  //this needs to work before rest of code works
   displayMsg(cls, from, msg) {
     const chatText = document.querySelector('#player-messages');
     chatText.innerHTML =
