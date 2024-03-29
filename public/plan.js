@@ -11,12 +11,6 @@
     "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
   ];
 
-  allPeople = [
-    "Stacie", "Martin", "Jade", "Charlie", "Nancy",
-    "Louis", "Rylee", "Will", "Brooke", "Kaden", 
-    "Gina", "Derek", "Penny", "Tony", "Allie"
-  ];
-
   stateFacts = [
     "Alabama is considered part of the south", "Alaska is super cold and there are bears", "Arizona is the only place where saguaro cacti grow naturally", 
     "Arkansas is pronounced different than Kansas", "California is a costal state famous for its oranges", 
@@ -52,6 +46,11 @@
     localStorage.setItem("pokedex", pokedex);
   };
 
+// Usage: Replace 'authToken' with the name of your authentication cookie
+const authToken = document.cookie
+.split('; ')
+.find(row => row.startsWith(`token=`))
+?.split('=')[1];
   
   localStorage.setItem("pokedex", pokedex);
   localStorage.setItem("states", JSON.stringify((allStates)));
@@ -169,28 +168,32 @@ const planner = new Plan();
     const newFav = pokedex; // Assuming pokedex contains the new favorite
     try {
       // Fetch existing favorites from the backend
-      const resp = await fetch('/api/favs', {
-        method: 'GET',
-      });
-      console.log("try get");
-      if (!resp.ok) {
-        console.log("failure");
-        throw new Error('Failed to fetch favorites from the backend');
-      }
+      // const resp = await fetch('/api/favs', {
+      //   method: 'GET',
+      // });
+      // console.log("try get");
+      // if (!resp.ok) {
+      //   console.log("failure");
+      //   throw new Error('Failed to fetch favorites from the backend');
+      // }
   
-      const existingFavs = await resp.json();
-      console.log('existingFavs: ', existingFavs);
+      // const existingFavs = await resp.json();
+      // console.log('existingFavs: ', existingFavs);
   
-      // Construct the new array of favorites
-      let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
-      favArray.push(newFav);
+      // // Construct the new array of favorites
+      // let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
+      // favArray.push(newFav);
   
       // Send the updated favorites array to the backend to save
+      console.log("before fetch");
       const response = await fetch('/api/fav', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(favArray),
+        headers: { 'content-type': 'application/json', 
+        'Authorization':`Bearer ${authToken}`
+      },
+        body: JSON.stringify(pokedex),
       });
+      console.log("fetched");
   
       if (!response.ok) {
         throw new Error('Failed to add favorite to the backend');

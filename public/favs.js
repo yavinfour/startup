@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function populateCards() {
   try {
     const response = await fetch('/api/favs');
+    console.log("tried fetch");
     if (!response.ok) {
       throw new Error('Failed to fetch favorites from the backend');
     }
