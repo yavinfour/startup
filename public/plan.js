@@ -46,15 +46,10 @@
     localStorage.setItem("pokedex", pokedex);
   };
 
-// Usage: Replace 'authToken' with the name of your authentication cookie
-const authToken = document.cookie
-.split('; ')
-.find(row => row.startsWith(`token=`))
-?.split('=')[1];
+
   
   localStorage.setItem("pokedex", pokedex);
   localStorage.setItem("states", JSON.stringify((allStates)));
-  localStorage.setItem("people", allPeople);
   localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
 
   // window.location.href = "favs.html";
@@ -96,7 +91,7 @@ class Plan {
 
   //this needs to work before rest of code works
   displayMsg(cls, from, msg) {
-    const chatText = document.querySelector('#player-messages');
+    const chatText = document.querySelector('#user-messages');
     chatText.innerHTML =
       `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
   }
@@ -110,113 +105,121 @@ class Plan {
     this.socket.send(JSON.stringify(event));
   }
 
-  getUserName() {
-    return localStorage.getItem('userName') ?? 'Mystery player';
+}
+
+function getUserName() {
+  return localStorage.getItem('userName') ?? 'Mystery user';
+}
+
+async function setFavArray() {
+  const newFav = pokedex; // Assuming pokedex contains the new favorite
+  const userName = this.getUserName();
+  try {
+    //Fetch existing favorites from the backend
+    const resp = await fetch('/api/favs', {
+      method: 'GET',
+    });
+    console.log("try get");
+    if (!resp.ok) {
+      console.log("failure");
+      throw new Error('Failed to fetch favorites from the backend');
+    }
+
+    const favSon = await resp.json();
+    const existingFavs = favSon.allFavs;
+
+    // Construct the new array of favorites
+    let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
+    console.log('existingFavs: ', favArray);
+    favArray.push(newFav);
+
+    const repVal = { userEmail: userName, allFavs: favArray };
+
+    //Send the updated favorites array to the backend to save
+    console.log("before fetch");
+    const response = await fetch('/api/fav', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON.stringify(repVal),
+    });
+
+
+    console.log("fetched");
+
+    if (!response.ok) {
+      throw new Error('Failed to add favorite to the backend');
+    }
+
+    console.log('favArray:', favArray);
+    alert(`${allStates[pokedex]} was added as a favorite`);
+
+  } catch (error) {
+    console.error("You failed in your quest. Error: ", error);
   }
 }
 
+function stateInfo(index) {
+
+  pokedex = index;
+
+  const state = allStates[index];
+  const newFacts = document.querySelector('#dbinfo');
+
+  const existingCard = document.querySelector('.card');
+  if (existingCard) {
+    existingCard.remove();
+  }
+
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.style.width = '300px';
+  card.style.marginLeft = 'auto';
+
+  const stateImage = document.createElement('img');
+  stateImage.classList.add('state');
+  stateImage.src = `US States/${state}.png`;
+
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  const cardTitle = document.createElement('h4');
+  cardTitle.classList.add('card-title');
+  cardTitle.textContent = `${state}`;
+
+  const badge = document.createElement('span');
+  badge.classList.add('badge', 'bg-secondary');
+  badge.textContent = 'State';
+
+  const cardText = document.createElement('p');
+  cardText.classList.add('card-text');
+  cardText.textContent = `${stateFacts[index]}`;
+  
+  cardTitle.appendChild(badge);
+  cardBody.appendChild(cardTitle);
+  cardBody.appendChild(cardText);
+
+  card.appendChild(stateImage);
+  card.appendChild(cardBody);
+
+  newFacts.insertBefore(card, newFacts.firstChild);
+  pokedex = index;
+}
+
+  
+function addIndex() {
+  setFavArray();
+}
+
+
+
 const planner = new Plan();
-
-  function stateInfo(index) {
-
-    pokedex = index;
-
-    const state = allStates[index];
-    const newFacts = document.querySelector('#dbinfo');
-
-    const existingCard = document.querySelector('.card');
-    if (existingCard) {
-      existingCard.remove();
-    }
-
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.style.width = '300px';
-    card.style.marginLeft = 'auto';
-
-    const stateImage = document.createElement('img');
-    stateImage.classList.add('state');
-    stateImage.src = `US States/${state}.png`;
-
-    const cardBody = document.createElement('div');
-    cardBody.classList.add('card-body');
-
-    const cardTitle = document.createElement('h4');
-    cardTitle.classList.add('card-title');
-    cardTitle.textContent = `${state}`;
-
-    const badge = document.createElement('span');
-    badge.classList.add('badge', 'bg-secondary');
-    badge.textContent = 'State';
-
-    const cardText = document.createElement('p');
-    cardText.classList.add('card-text');
-    cardText.textContent = `${stateFacts[index]}`;
-    
-    cardTitle.appendChild(badge);
-    cardBody.appendChild(cardTitle);
-    cardBody.appendChild(cardText);
-
-    card.appendChild(stateImage);
-    card.appendChild(cardBody);
-
-    newFacts.insertBefore(card, newFacts.firstChild);
-    pokedex = index;
-  }
-
-  async function setFavArray() {
-    const newFav = pokedex; // Assuming pokedex contains the new favorite
-    try {
-      // Fetch existing favorites from the backend
-      // const resp = await fetch('/api/favs', {
-      //   method: 'GET',
-      // });
-      // console.log("try get");
-      // if (!resp.ok) {
-      //   console.log("failure");
-      //   throw new Error('Failed to fetch favorites from the backend');
-      // }
-  
-      // const existingFavs = await resp.json();
-      // console.log('existingFavs: ', existingFavs);
-  
-      // // Construct the new array of favorites
-      // let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
-      // favArray.push(newFav);
-  
-      // Send the updated favorites array to the backend to save
-      console.log("before fetch");
-      const response = await fetch('/api/fav', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 
-        'Authorization':`Bearer ${authToken}`
-      },
-        body: JSON.stringify(pokedex),
-      });
-      console.log("fetched");
-  
-      if (!response.ok) {
-        throw new Error('Failed to add favorite to the backend');
-      }
-  
-      console.log('favArray:', favArray);
-      alert(`${allStates[pokedex]} was added as a favorite`);
-  
-    } catch (error) {
-      console.error("You failed in your quest. Error: ", error);
-    }
-  }
-  
-  function addIndex() {
-    setFavArray();
-  }
-
 
 document.getElementById("searchBtn").addEventListener("click", function() {
   const searchQuery = document.getElementById("searchQuery").value;
 
   fetchEvents(searchQuery);
 });
+
 
 async function fetchEvents(searchQuery) {
   try {

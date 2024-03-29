@@ -4,13 +4,11 @@ const express = require('express');
 const app = express();
 const DB = require('./database.js');
 const { peerProxy } = require('./peerProxy.js');
-const fs = require('fs/promises'); // Using fs.promises for async file operations
 
 const authCookieName = 'token';
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
-async function startServer() {
   app.use(express.json());
   app.use(cookieParser());
 
@@ -22,9 +20,6 @@ async function startServer() {
   // Router for service endpoints
   var apiRouter = express.Router();
   app.use(`/api`, apiRouter);
-
-  // Initialize favs by reading from the file or using an empty array if the file doesn't exist
-  let favs = [];
 
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -76,54 +71,35 @@ apiRouter.get('/user/:email', async (req, res) => {
 const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
-  secureApiRouter.use(async (req, res, next) => {
-    // Authentication middleware
-  });
-
-  secureApiRouter.use(async (req, res, next) => {
-    const authToken = req.cookies[authCookieName];
-    const user = await DB.getUserByToken(authToken);
-    if (user) {
-      next();
-    } else {
-      res.status(401).send({ msg: 'Unauthorized' });
-    }
-  });
+secureApiRouter.use(async (req, res, next) => {
+  const authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+});
 
   // GetFavs route
   secureApiRouter.get('/favs', async (req, res) => {
-    try {
       const favorites = await DB.getFavs();
       res.send(favorites);
-    } catch (error) {
-      console.error('Error retrieving favorites:', error);
-      res.status(500).send('Internal Server Error');
-    }
   });
 
   // SubmitFav route
   secureApiRouter.post('/fav', async (req, res) => {
-    try {
-      const { newFav } = req.body;
+      const newFav = {...req.body, ip:req.ip};
       await DB.addFav(newFav); // Add new favorite to MongoDB
       const favorites = await DB.getFavs(); // Retrieve updated favorites
       res.send(favorites);
-    } catch (error) {
-      console.error('Error adding favorite:', error);
-      res.status(500).send('Internal Server Error');
-    }
   });
 
   // ClearFavs route
   secureApiRouter.delete('/favs', async (req, res) => {
-    try {
       await DB.clearFavs(); // Clear favorites from MongoDB
       const favorites = await DB.getFavs(); // Retrieve updated favorites
       res.send(favorites);
-    } catch (error) {
-      console.error('Error clearing favorites:', error);
-      res.status(500).send('Internal Server Error');
-    }
   });
 
   // Default error handler
@@ -149,7 +125,3 @@ apiRouter.use(secureApiRouter);
   });
   
   peerProxy(httpsService);
-}
-
-
-startServer();
