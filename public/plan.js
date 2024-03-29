@@ -85,7 +85,7 @@ class Plan {
     this.socket.onmessage = async (event) => {
       const msg = JSON.parse(await event.data.text()); //throwing the json error
       console.log(msg);
-      if (msg.type === addedFav) {
+      if (msg.type === addedFav && msg.from !== getUserName()) {
         this.displayMsg('user', msg.from, `added ${allStates[msg.value]}`);
       }// else if (msg.type === GameStartEvent) {
       //   this.displayMsg('user', msg.from, `started a new game`);
