@@ -82,7 +82,7 @@ async function clearFavs(user) {
     const deleteResult = await favCollection.deleteMany(query);
 
     // Log the number of documents deleted (optional)
-    console.log(`Deleted ${deleteResult.deletedCount} favorites for userEmail: ${userEmail}`);
+    console.log(`Deleted ${deleteResult.deletedCount} favorites for userEmail: ${user}`);
 
     // Return the delete result
     return deleteResult;
@@ -99,4 +99,5 @@ module.exports = {
   createUser,
   addFav,
   getFavs,
+  clearFavs,
 };

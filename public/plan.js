@@ -32,6 +32,7 @@
 
   let pokedex = 0;
   const addedFav = 'addedFav';
+  const noFavs = 'deletedFavs';
 
   // const setFavArray = () => {
   // favArray.add(pokedex);
@@ -85,7 +86,7 @@ class Plan {
       const msg = JSON.parse(await event.data.text()); //throwing the json error
       console.log(msg);
       if (msg.type === addedFav) {
-        this.displayMsg(msg.from, `added ${allStates[msg.value.fav]}`);
+        this.displayMsg('user', msg.from, `added ${allStates[msg.value]}`);
       }// else if (msg.type === GameStartEvent) {
       //   this.displayMsg('user', msg.from, `started a new game`);
       // }
@@ -99,15 +100,15 @@ class Plan {
       `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
   }
 
-  broadcastEvent(from, type, value) {
-    const event = {
-      from: from,
-      type: type,
-      value: value,
-    };
-    this.socket.send(JSON.stringify(event));
-  }
+}
 
+function broadcastEvent(from, type, value) {
+  const event = {
+    from: from,
+    type: type,
+    value: value,
+  };
+  this.socket.send(JSON.stringify(event));
 }
 
 function getUserName() {

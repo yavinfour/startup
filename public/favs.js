@@ -77,8 +77,10 @@ function renderCards(favorites) {
 }
 
 async function deleteAll() {
+  const userEmail = getUserName();
+  console.log("try delete");
   try {
-    const resp = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
+    const resp = await fetch(`/api/favs/${userEmail}`, {
       method: 'DELETE',
     });
     if (!resp.ok) {

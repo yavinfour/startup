@@ -99,9 +99,11 @@ secureApiRouter.use(async (req, res, next) => {
   });
 
   // ClearFavs route
-  secureApiRouter.delete('/favs', async (req, res) => {
-    const userName = req.query.userEmail;
-      await DB.clearFavs(userName); // Clear favorites from MongoDB
+  secureApiRouter.delete('/favs/:userEmail', async (req, res) => {
+    const userEmail = req.params.userEmail;
+    console.log("userEmail", userEmail);
+    console.log("in Delete Index");
+      await DB.clearFavs(userEmail); // Clear favorites from MongoDB
       const favorites = await DB.getFavs(); // Retrieve updated favorites
       res.send(favorites);
   });
