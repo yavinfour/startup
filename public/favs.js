@@ -5,8 +5,12 @@ class AddFav {
   }
 
   getUserName() {
-    return 'New User'; // We're not using localStorage for username anymore
+    return localStorage.getItem('userName') ?? 'Mystery user';
   }
+}
+
+function getUserName() {
+  return localStorage.getItem('userName') ?? 'Mystery user';
 }
 
 const game = new AddFav();
@@ -16,17 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function populateCards() {
-  try {
-    const response = await fetch('/api/favs');
+  const userName = this.getUserName();
+    const response = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
+      method: 'GET',
+    });
     console.log("tried fetch");
-    if (!response.ok) {
-      throw new Error('Failed to fetch favorites from the backend');
-    }
-    const favorites = await response.json();
+    const getFavs = await response.json();
+    const favorites = getFavs[0];
+    console.log(favorites);
     renderCards(favorites);
-  } catch (error) {
-    console.error('Failed to populate cards:', error);
-  }
 }
 
 function renderCards(favorites) {
@@ -34,12 +36,19 @@ function renderCards(favorites) {
   newFacts.innerHTML = ''; // Clear existing cards
 
   favorites.forEach((favorite) => {
-    const { state, fact } = favorite;
+    const allStates = JSON.parse(localStorage.getItem("states"));
+    const stateFact = JSON.parse(localStorage.getItem("stateFact"));
+    const state = allStates[favorite];
+    const fact = stateFact[favorite];
 
     const card = document.createElement('div');
     card.classList.add('card');
     card.style.width = '300px';
     card.style.marginLeft = 'auto';
+
+    const stateImage = document.createElement('img');
+    stateImage.classList.add('state');
+    stateImage.src = `US Flowers/${state}.png`;
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
@@ -60,6 +69,7 @@ function renderCards(favorites) {
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
 
+    card.appendChild(stateImage);
     card.appendChild(cardBody);
 
     newFacts.appendChild(card);
@@ -68,7 +78,7 @@ function renderCards(favorites) {
 
 async function deleteAll() {
   try {
-    const resp = await fetch('/api/favs', {
+    const resp = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
       method: 'DELETE',
     });
     if (!resp.ok) {

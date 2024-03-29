@@ -65,25 +65,28 @@ class Plan {
 
     this.configureWebSocket();
   }
+  getUserName() {
+    return localStorage.getItem('userName') ?? 'Mystery user';
+  }
 
   configureWebSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     window.socket = this.socket;
     this.socket.onopen = (event) => {
-      //this.displayMsg('system', 'plan', 'connected');
+      this.displayMsg('system', 'plan', 'connected');
       console.log("ws connected");
     };
     this.socket.onclose = (event) => {
       console.log("ws closed");
-      //this.displayMsg('system', 'plan', 'disconnected');
+      this.displayMsg('system', 'plan', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
       const msg = JSON.parse(await event.data.text()); //throwing the json error
       console.log(msg);
-      // if (msg.type === addedFav) {
-      //   this.displayMsg('user', msg.from, `added ${allStates[msg.value.fav]}`);
-      // }// else if (msg.type === GameStartEvent) {
+      if (msg.type === addedFav) {
+        this.displayMsg(msg.from, `added ${allStates[msg.value.fav]}`);
+      }// else if (msg.type === GameStartEvent) {
       //   this.displayMsg('user', msg.from, `started a new game`);
       // }
     };
@@ -116,7 +119,7 @@ async function setFavArray() {
   const userName = this.getUserName();
   try {
     //Fetch existing favorites from the backend
-    const resp = await fetch('/api/favs', {
+    const resp = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
       method: 'GET',
     });
     console.log("try get");
@@ -125,15 +128,16 @@ async function setFavArray() {
       throw new Error('Failed to fetch favorites from the backend');
     }
 
-    const favSon = await resp.json();
-    const existingFavs = favSon.allFavs;
+    const existingFavsResponse = await resp.json();
+    console.log(`existing favs: ${existingFavsResponse.allFavs}`);
+    let existingFavs = existingFavsResponse[0] || [];
+    const favExists = existingFavs.some(fav => fav === newFav);
+    if (!favExists) {
+      // If the new favorite doesn't exist, push it onto the existing favorites array
+      existingFavs.push(newFav);
+    }
 
-    // Construct the new array of favorites
-    let favArray = Array.isArray(existingFavs) ? [...existingFavs] : [];
-    console.log('existingFavs: ', favArray);
-    favArray.push(newFav);
-
-    const repVal = { userEmail: userName, allFavs: favArray };
+    const repVal = { userEmail: userName, allFavs: existingFavs };
 
     //Send the updated favorites array to the backend to save
     console.log("before fetch");
@@ -150,8 +154,9 @@ async function setFavArray() {
       throw new Error('Failed to add favorite to the backend');
     }
 
-    console.log('favArray:', favArray);
+    console.log('favArray:', existingFavs);
     alert(`${allStates[pokedex]} was added as a favorite`);
+    this.broadcastEvent(userName, addedFav, pokedex);
 
   } catch (error) {
     console.error("You failed in your quest. Error: ", error);
@@ -177,7 +182,7 @@ function stateInfo(index) {
 
   const stateImage = document.createElement('img');
   stateImage.classList.add('state');
-  stateImage.src = `US States/${state}.png`;
+  stateImage.src = `US Flowers/${state}.png`;
 
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');

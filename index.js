@@ -83,21 +83,25 @@ secureApiRouter.use(async (req, res, next) => {
 
   // GetFavs route
   secureApiRouter.get('/favs', async (req, res) => {
-      const favorites = await DB.getFavs();
-      res.send(favorites);
+    const userName=req.query.userEmail;  
+    console.log(`in index.js ${userName}`);
+    const favorites = await DB.getFavs(userName);
+    res.send(favorites);
   });
 
   // SubmitFav route
   secureApiRouter.post('/fav', async (req, res) => {
+    const { userEmail } = req.body;
       const newFav = {...req.body, ip:req.ip};
       await DB.addFav(newFav); // Add new favorite to MongoDB
-      const favorites = await DB.getFavs(); // Retrieve updated favorites
+      const favorites = await DB.getFavs(userEmail); // Retrieve updated favorites
       res.send(favorites);
   });
 
   // ClearFavs route
   secureApiRouter.delete('/favs', async (req, res) => {
-      await DB.clearFavs(); // Clear favorites from MongoDB
+    const userName = req.query.userEmail;
+      await DB.clearFavs(userName); // Clear favorites from MongoDB
       const favorites = await DB.getFavs(); // Retrieve updated favorites
       res.send(favorites);
   });

@@ -46,31 +46,51 @@ async function createUser(email, password) {
   return user;
 }
 
-function addFav(fav) {
-  favCollection.insertOne(fav);
-  // function addFav(fav) {
-  //   // Specify the filter criteria to identify the document to be replaced
-  //   const filter = { index: fav.index }; // Assuming 'index' is used to uniquely identify the document
-    
-  //   // Replace the existing document with the new 'fav' object
-  //   favCollection.replaceOne(filter, fav, { upsert: true }) // 'upsert: true' will insert if document doesn't exist
-  //     .then(result => {
-  //       console.log('Fav added or replaced successfully:', result);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error adding or replacing fav:', error);
-  //     });
-  // }
+async function addFav(fav) {
+  try {
+    // Specify the filter criteria to identify the document to be replaced
+    const filter = { index: fav.index }; // Assuming 'index' is used to uniquely identify the document
+
+    // Replace the existing document with the new 'fav' object
+    const result = await favCollection.replaceOne(filter, fav, { upsert: true }); // 'upsert: true' will insert if document doesn't exist
+    console.log('Fav added or replaced successfully:', result);
+    return result; // Return the result of the operation
+  } catch (error) {
+    console.error('Error adding or replacing fav:', error);
+    throw error; // Re-throw the error to propagate it
+  }
 }
 
-function getFavs() {
-  const query = { fav: { $gt: 0, $lt: 900 } };
+async function getFavs(userEmail) {
+  const query = { userEmail: userEmail };
   const options = {
-    sort: { fav: -1 },
+    projection: { allFavs: 1, _id: 0 }, // Only include the allFavs field in the result
     limit: 10,
   };
   const cursor = favCollection.find(query, options);
-  return cursor.toArray();
+  const docs = await cursor.toArray();
+  const allFavs = docs.map(doc => doc.allFavs); // Extract allFavs from each document
+  return allFavs;
+}
+
+async function clearFavs(user) {
+  try {
+    // Construct the query to match documents based on userEmail
+    const query = { userEmail: user };
+
+    // Delete all documents matching the query from the collection
+    const deleteResult = await favCollection.deleteMany(query);
+
+    // Log the number of documents deleted (optional)
+    console.log(`Deleted ${deleteResult.deletedCount} favorites for userEmail: ${userEmail}`);
+
+    // Return the delete result
+    return deleteResult;
+  } catch (error) {
+    // Handle any errors that occur during the delete operation
+    console.error('Error clearing favorites:', error);
+    throw new Error('Failed to clear favorites');
+  }
 }
 
 module.exports = {
