@@ -78,10 +78,10 @@ I am going to use the required technologies in the following ways.
 ### Restricts functionality - Done
 ## WebSocket deliverable
 
-### Backend listens for WebSocket connection - 
-### Frontend makes WebSocket connection - 
-### Data sent over WebSocket connection - 
-### WebSocket data displayed - 
+### Backend listens for WebSocket connection - done
+### Frontend makes WebSocket connection - done
+### Data sent over WebSocket connection - done
+### WebSocket data displayed - done (look under notifications tab on the plan page)
 ## React deliverable
 
 ### Bundled and transpiled - 
