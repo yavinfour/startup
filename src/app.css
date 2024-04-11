@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+  }
+  
+  header {
+    flex: 0 80px;
+    background-color: silver;
+    border-radius: 5px;
+    padding: 20px;
+    height: 200px;
+    font-family: "Didot", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      text-align: center;
+    }
+    menu {
+      display: flex;
+        div{
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          a{
+            border-radius: 5px;
+            background-color:rgb(225, 200, 250);
+            color:rgb(49, 22, 53);
+            padding: 0em 1.5em;
+            text-decoration: none;
+          }
+          a:hover {
+            background-color: #c5c1f0;
+          }
+          
+          a:active {
+            background-color: rgb(196, 166, 243);
+          }
+
+        }
+    }
+  }
+
+  
+  main {
+    background-color: aliceblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex: 1 calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    form {
+      margin:15px;
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      margin-bottom:20px;
+      padding:10px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px 4px rgb(182, 182, 182);
+      flex-direction: column;
+    }
+  }
+  
+  
+  
+  footer {
+    flex: 0 30px;
+    background-color: rgb(212, 196, 218);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: justify;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: justify;
+    display: inline-block;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    a{
+      border-radius: 5px;
+      background-color:rgb(198, 167, 230);
+      color:rgb(49, 22, 53);
+      padding: 0em 1.5em;
+      text-decoration: none;
+    }
+    a:hover {
+      background-color: #b5b0ec;
+    }
+    
+    a:active {
+      background-color: rgb(196, 166, 243);
+    }
+    
+  }
+  
+  /* menu {
+    flex: 1;
+    display: flex;
+    flex-direction: row !important;
+    list-style: none;
+  } */
+  
