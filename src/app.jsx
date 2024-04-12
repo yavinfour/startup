@@ -68,7 +68,7 @@ function App() {
         <footer className='bg-dark text-dark text-muted'>
           <div className='container-fluid'>
             <span className='text-reset'>Mali Allen(s)</span>
-            <a className='text-reset' href='https://github.com/webprogramming260/simon-react'>
+            <a className='text-reset' href='https://github.com/yavinfour/startup'>
               Source
             </a>
           </div>
