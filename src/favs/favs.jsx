@@ -1,43 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './favs.css';
 
-export default function Favs () {
+const Favs = () => {
     const [favs, setFavs] = React.useState([]);
 
-    React.useEffect(() => {
-        fetch('/api/favs')
-          .then((response) => response.json())
-          .then((favs) => {
-            setFavs(favs);
-            localStorage.setItem('favs', JSON.stringify(favs));
-          })
-          .catch(() => {
-            const favsText = localStorage.getItem('favs');
-            if (scoresText) {
-              setFavs(JSON.parse(favsText));
-            }
-          });
-      }, []);
+    useEffect(() => {
+      fetchFavorites();
+    });
 
-      const favRows = [];
-        if (favs.length) {
-        for (const [i, fav] of favs.entries()) {
-            favRows.push(
-            <tr key={i}>
-                <td>{i}</td>
-                <td>{fav.name.split('@')[0]}</td>
-                <td>{fav.score}</td>
-                <td>{fav.date}</td>
-            </tr>
-            );
-        }
-        } else {
-        favRows.push(
-            <tr key='0'>
-            <td colSpan='4'>Add some favorites!</td>
-            </tr>
-        );
-        }
+    const fetchFavorites = async () => {
+      const userName = getUserName();
+      try {
+          const response = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
+              method: 'GET',
+          });
+          if (!response.ok) {
+              throw new Error('Failed to fetch favorites');
+          }
+          const favorites = await response.json();
+          setFavs(favorites);
+      } catch (error) {
+          console.error('Error fetching favorites:', error);
+      }
+    };
+
+      // const favRows = [];
+      //   if (favs.length) {
+      //   for (const [i, fav] of favs.entries()) {
+      //       favRows.push(
+      //       <tr key={i}>
+      //           <td>{i}</td>
+      //           <td>{fav.name.split('@')[0]}</td>
+      //           <td>{fav.score}</td>
+      //           <td>{fav.date}</td>
+      //       </tr>
+      //       );
+      //   }
+      //   } else {
+      //   favRows.push(
+      //       <tr key='0'>
+      //       <td colSpan='4'>Add some favorites!</td>
+      //       </tr>
+      //   );
+      //   }
 
     function getUserName() {
         return localStorage.getItem('userName') ?? 'Mystery user';
@@ -47,8 +52,8 @@ export default function Favs () {
         populateCards();
       });
       
-      async function populateCards() {
-        const userName = this.getUserName();
+      const populateCards = async () => {
+        const userName = getUserName();
           const response = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
             method: 'GET',
           });
@@ -59,7 +64,7 @@ export default function Favs () {
           renderCards(favorites);
       }
       
-      function renderCards(favorites) {
+      const renderCards = async (favorites) => {
         const newFacts = document.querySelector('#dbinfo');
         newFacts.innerHTML = ''; // Clear existing cards
       
@@ -69,42 +74,21 @@ export default function Favs () {
           const state = allStates[favorite];
           const fact = stateFact[favorite];
       
-          const card = document.createElement('div');
-          card.classList.add('card');
-          card.style.width = '300px';
-          card.style.marginLeft = 'auto';
+          const card = (
+            <div className="card">
+              <img className="state" src={`../US_Flowers/${state}.png`} alt={state} />
+              <div className="card-body">
+                <h4 className="card-title">
+                  <span className="badge bg-secondary">State</span>
+                  {state}
+                </h4>
+                <p className="card-text">{stateFacts[index]}</p>
+              </div>
+            </div>
+          );
+      });
       
-          const stateImage = document.createElement('img');
-          stateImage.classList.add('state');
-          stateImage.src = `US Flowers/${state}.png`;
-      
-          const cardBody = document.createElement('div');
-          cardBody.classList.add('card-body');
-      
-          const cardTitle = document.createElement('h4');
-          cardTitle.classList.add('card-title');
-          cardTitle.textContent = state;
-      
-          const badge = document.createElement('span');
-          badge.classList.add('badge', 'bg-secondary');
-          badge.textContent = 'State';
-      
-          const cardText = document.createElement('p');
-          cardText.classList.add('card-text');
-          cardText.textContent = fact;
-      
-          cardTitle.appendChild(badge);
-          cardBody.appendChild(cardTitle);
-          cardBody.appendChild(cardText);
-      
-          card.appendChild(stateImage);
-          card.appendChild(cardBody);
-      
-          newFacts.appendChild(card);
-        });
-      }
-      
-      async function deleteAll() {
+      const deleteAll = async () => {
         const userEmail = getUserName();
         console.log("try delete");
         try {
@@ -120,20 +104,35 @@ export default function Favs () {
         }
       }
       
-      function addIndex() {
-        // Implement adding favorites functionality if needed
-      }
+
     return (
         <main>
             <h1>Favorites</h1>
-            <button>
-                <div className="delete" onclick="deleteAll()">
+            <button onClick={deleteAll}>
+                <div className="delete">
                     <p>Clear Favorites</p>
                 </div>
             </button>
-            <p>See all of your future travel goals!</p>
-            <p></p>
-            <div id="dbinfo" className="new-cards"></div>
+            <div className="new-cards">
+                {favs.length > 0 ? (
+                    favs.map((favorite, index) => (
+                        <div className="card" key={index}>
+                            <img className="state" src={`US Flowers/${favorite.state}.png`} alt={favorite.state} />
+                            <div className="card-body">
+                                <h4 className="card-title">
+                                    <span className="badge bg-secondary">State</span> {favorite.state}
+                                </h4>
+                                <p className="card-text">{favorite.fact}</p>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <p>Add some favorites!</p>
+                )}
+            </div>
         </main>
     );
-}
+};
+};
+
+export default Favs;

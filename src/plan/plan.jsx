@@ -43,24 +43,17 @@ const Plan = () => {
 
 
   const addIndex = () => {
-    setFavorites([...favorites, pokedex]);
+    setFavArray();
   }
-  // const setFavArray = () => {
-  // favArray.add(pokedex);
-  // console.log(pokedex);
-  // console.log('favArray:', Array.from(favArray));
-  // localStorage.setItem("favorites", JSON.stringify([...favArray]));
-  // alert(`${allStates[pokedex]} was added as a favorite`)
-  // }
 
 
   // localStorage.setItem("pokedex", pokedex);
   // localStorage.setItem("states", JSON.stringify((allStates)));
   // localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
 
-      // function getUserName() {
-      //     return localStorage.getItem('userName') ?? 'Mystery user';
-      // }
+      function getUserName() {
+          return localStorage.getItem('userName') ?? 'Mystery user';
+      }
 
       // function configureWebSocket() {
       //     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
@@ -106,7 +99,7 @@ const Plan = () => {
 
       const setFavArray = async () => {
       const newFav = pokedex; // Assuming pokedex contains the new favorite
-      const userName = this.getUserName();
+      const userName = getUserName();
       try {
           //Fetch existing favorites from the backend
           const resp = await fetch(`/api/favs?userEmail=${encodeURIComponent(userName)}`, {
@@ -146,12 +139,12 @@ const Plan = () => {
 
           console.log('favArray:', existingFavs);
           alert(`${allStates[pokedex]} was added as a favorite`);
-          this.broadcastEvent(userName, addedFav, pokedex);
+          broadcastEvent(userName, addedFav, pokedex);
 
       } catch (error) {
           console.error("You failed in your quest. Error: ", error);
       }
-      }
+      };
 
       const stateInfo = (index) => {
 
@@ -161,7 +154,7 @@ const Plan = () => {
       const state = allStates[index];
       const card = (
         <div className="card">
-          <img className="state" src={`US Flowers/${state}.png`} alt={state} />
+          <img className="state" src={`../US_Flowers/${state}.png`} alt={state} />
           <div className="card-body">
             <h4 className="card-title">
               <span className="badge bg-secondary">State</span>
@@ -175,60 +168,6 @@ const Plan = () => {
       // Render the card element
       ReactDOM.render(card, document.getElementById('dbinfo'));
       };
-
-      // const state = allStates[index];
-      // const newFacts = document.querySelector('#dbinfo');
-
-      // const existingCard = document.querySelector('.card');
-      // if (existingCard) {
-      //     existingCard.remove();
-      // }
-
-      // const card = document.createElement('div');
-      // card.classList.add('card');
-      // card.style.width = '300px';
-      // card.style.marginLeft = 'auto';
-
-      // const stateImage = document.createElement('img');
-      // stateImage.classList.add('state');
-      // stateImage.src = `US Flowers/${state}.png`;
-
-      // const cardBody = document.createElement('div');
-      // cardBody.classList.add('card-body');
-
-      // const cardTitle = document.createElement('h4');
-      // cardTitle.classList.add('card-title');
-      // cardTitle.textContent = `${state}`;
-
-      // const badge = document.createElement('span');
-      // badge.classList.add('badge', 'bg-secondary');
-      // badge.textContent = 'State';
-
-      // const cardText = document.createElement('p');
-      // cardText.classList.add('card-text');
-      // cardText.textContent = `${stateFacts[index]}`;
-      
-      // cardTitle.appendChild(badge);
-      // cardBody.appendChild(cardTitle);
-      // cardBody.appendChild(cardText);
-
-      // card.appendChild(stateImage);
-      // card.appendChild(cardBody);
-
-      // newFacts.insertBefore(card, newFacts.firstChild);
-      // pokedex = index;
-      // };
-
-      
-      // const addIndex = () => {
-      // setFavArray();
-      // };
-
-      // document.getElementById("searchBtn").addEventListener("click", function() {
-      // const searchQuery = document.getElementById("searchQuery").value;
-
-      // fetchEvents(searchQuery);
-      // });
 
 
       const fetchEvents = async (searchQuery) => {
@@ -290,12 +229,12 @@ const Plan = () => {
       {allStates.map((state, index) => (
               <button key={index} onClick={() => stateInfo(index)}>
                 <div className="picture-box">
-                  <img height="100px" src={`US States/${state}.png`} alt={state} />
+                  <img height="100px" src={`../US_States/${state}.png`} alt={state} />
                 </div>
               </button>
             ))}
       </div>
-      
+
       <div className="favoritize">
         <p>Add selected location to favorites?</p>
         <button>
