@@ -67,7 +67,7 @@ function App() {
 
         <footer className='bg-dark text-dark text-muted'>
           <div className='container-fluid'>
-            <span className='text-reset'>Mali Allen(s)</span>
+            <span className='text-reset'>Mali Allen</span>
             <a className='text-reset' href='https://github.com/yavinfour/startup'>
               Source
             </a>

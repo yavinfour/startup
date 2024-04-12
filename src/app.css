@@ -76,6 +76,9 @@ body {
     display: inline-block;
     justify-content: space-between;
     flex: 0 0 auto;
+    .text-reset{
+      color: bisque;
+    }
     a{
       border-radius: 5px;
       background-color:rgb(198, 167, 230);

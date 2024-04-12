@@ -37,7 +37,7 @@ export function Unauthenticated(props) {
     <>
       <div>
         <div className='input-group mb-3'>
-          <span className='input-group-text'>&#9993</span>
+          <span className='input-group-text'>{'\u2709'}</span>
           <input
             className='form-control'
             type='text'
