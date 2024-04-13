@@ -5,12 +5,21 @@ body {
   }
   
   header {
+    .navbar-brand{
+      font-size:large;
+      margin-left:30px;
+      margin-right:40px;
+    }
+    .nav-item {
+      margin-left:20px;
+      margin-right:20px;
+    }
     flex: 0 80px;
     background-color: silver;
     border-radius: 5px;
     padding: 20px;
     height: 200px;
-    font-family: "Didot", serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,9 +31,10 @@ body {
         div{
           font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
           a{
+            margin-right: 20px;
             border-radius: 5px;
             background-color:rgb(225, 200, 250);
-            color:rgb(49, 22, 53);
+            color:rgb(97, 45, 105);
             padding: 0em 1.5em;
             text-decoration: none;
           }
@@ -42,6 +52,7 @@ body {
 
   
   main {
+    color:aliceblue;
     background-color: aliceblue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     flex: 1 calc(100vh - 110px);
@@ -66,6 +77,14 @@ body {
   
   
   footer {
+    .whole-foot{
+      background-color: aquamarine;
+    }
+    .container-fluid{
+      justify-content: space-between;
+      margin-left:20px;
+      margin-right:20px;
+    }
     flex: 0 30px;
     background-color: rgb(212, 196, 218);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -76,9 +95,7 @@ body {
     display: inline-block;
     justify-content: space-between;
     flex: 0 0 auto;
-    .text-reset{
-      color: bisque;
-    }
+    color:rgb(50, 66, 82);
     a{
       border-radius: 5px;
       background-color:rgb(198, 167, 230);

@@ -15,11 +15,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='body bg-dark text-light'>
+      <div className='body text-light'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
             <div className='navbar-brand'>
-              Travler<sup>&reg;</sup>
+              Travler
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
@@ -65,10 +65,10 @@ function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
 
-        <footer className='bg-dark text-dark text-muted'>
+        <footer className='whole-foot'>
           <div className='container-fluid'>
-            <span className='text-reset'>Mali Allen</span>
-            <a className='text-reset' href='https://github.com/yavinfour/startup'>
+            <span className='my-name'>Mali Allen</span>
+            <a className='true-source' href='https://github.com/yavinfour/startup'>
               Source
             </a>
           </div>

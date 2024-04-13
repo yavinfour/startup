@@ -50,6 +50,9 @@ body {
   }
 
   main {
+    h1{
+    color:rgb(49, 22, 53);
+    }
       display: flex;
       justify-content: space-between;
       align-items: center;

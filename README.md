@@ -84,10 +84,10 @@ I am going to use the required technologies in the following ways.
 ### WebSocket data displayed - done (look under notifications tab on the plan page)
 ## React deliverable
 
-### Bundled and transpiled - 
-### Components - 
-### Router - 
-### Hooks - 
+### Bundled and transpiled - Bundled 
+### Components - The three components are run with react
+### Router - There's a router
+### Hooks - Hooked in
 ### About
 ### An example start up project
 

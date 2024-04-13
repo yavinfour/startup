@@ -33,6 +33,10 @@ const Favs = () => {
       const renderCards = (favs) => {
         const allStates = JSON.parse(localStorage.getItem("states"));
         const stateFact = JSON.parse(localStorage.getItem("stateFact"));
+
+        if (!favs || !Array.isArray(favs) || favs.length === 0) {
+          return <p>Add some favorites!</p>;
+        }
     
         return favs.map((fav, index) => {
             const state = allStates[fav];
