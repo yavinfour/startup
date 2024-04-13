@@ -41,15 +41,14 @@ const Plan = () => {
     "West Virginia looks like a frog", "Wisconsin is famous for it's cheese, their chocolate cheese is really good", "Wyoming is a cowboy state"
   ];
 
+  localStorage.setItem("pokedex", pokedex);
+  localStorage.setItem("states", JSON.stringify((allStates)));
+  localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
 
   const addIndex = () => {
     setFavArray();
   }
 
-
-  // localStorage.setItem("pokedex", pokedex);
-  // localStorage.setItem("states", JSON.stringify((allStates)));
-  // localStorage.setItem("stateFact", JSON.stringify((stateFacts)));
 
       function getUserName() {
           return localStorage.getItem('userName') ?? 'Mystery user';
