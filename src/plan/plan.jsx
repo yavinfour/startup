@@ -54,27 +54,28 @@ const Plan = () => {
           return localStorage.getItem('userName') ?? 'Mystery user';
       }
 
-      // function configureWebSocket() {
-      //     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-      //     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-      //     window.socket = this.socket;
-      //     this.socket.onopen = (event) => {
-      //     this.displayMsg('system', 'plan', 'connected');
-      //     console.log("ws connected");
-      //     };
-      //     this.socket.onclose = (event) => {
-      //     console.log("ws closed");
-      //     this.displayMsg('system', 'plan', 'disconnected');
-      //     };
-      //     this.socket.onmessage = async (event) => {
-      //     const msg = JSON.parse(await event.data.text()); //throwing the json error
-      //     console.log(msg);
-      //     if (msg.type === addedFav && msg.from !== getUserName()) {
-      //         this.displayMsg('user', msg.from, `added ${allStates[msg.value]}`);
-      //     }// else if (msg.type === GameStartEvent) {
-      //     //   this.displayMsg('user', msg.from, `started a new game`);
-      //     // }
-      //     };
+      const configureWebSocket = () => {
+          const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+          this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+          window.socket = this.socket;
+          this.socket.onopen = (event) => {
+          this.displayMsg('system', 'plan', 'connected');
+          console.log("ws connected");
+          };
+          this.socket.onclose = (event) => {
+          console.log("ws closed");
+          this.displayMsg('system', 'plan', 'disconnected');
+          };
+          this.socket.onmessage = async (event) => {
+          const msg = JSON.parse(await event.data.text()); //throwing the json error
+          console.log(msg);
+          if (msg.type === addedFav && msg.from !== getUserName()) {
+              this.displayMsg('user', msg.from, `added ${allStates[msg.value]}`);
+          }// else if (msg.type === GameStartEvent) {
+          //   this.displayMsg('user', msg.from, `started a new game`);
+          // }
+          };
+      };
 
       //this needs to work before rest of code works
       const displayMsg = (cls, from, msg) => {
@@ -153,7 +154,7 @@ const Plan = () => {
       const state = allStates[index];
       const card = (
         <div className="card">
-          <img className="state" src={`../US_Flowers/${state}.png`} alt={state} />
+          <img className="state" src={`../src/US_Flowers/${state}.png`} alt={state} />
           <div className="card-body">
             <h4 className="card-title">
               <span className="badge bg-secondary">State</span>
@@ -228,7 +229,7 @@ const Plan = () => {
       {allStates.map((state, index) => (
               <button key={index} onClick={() => stateInfo(index)}>
                 <div className="picture-box">
-                  <img height="100px" src={`../US_States/${state}.png`} alt={state} />
+                  <img height="100px" src={`../src/US_States/${state}.png`} alt={state} />
                 </div>
               </button>
             ))}
