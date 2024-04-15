@@ -49,6 +49,9 @@ const Plan = () => {
     setFavArray();
   }
 
+  useEffect(() => {
+    configureWebSocket();
+  }, []);
 
       function getUserName() {
           return localStorage.getItem('userName') ?? 'Mystery user';
@@ -71,9 +74,7 @@ const Plan = () => {
           console.log(msg);
           if (msg.type === addedFav && msg.from !== getUserName()) {
               this.displayMsg('user', msg.from, `added ${allStates[msg.value]}`);
-          }// else if (msg.type === GameStartEvent) {
-          //   this.displayMsg('user', msg.from, `started a new game`);
-          // }
+          }
           };
       };
 
@@ -154,7 +155,7 @@ const Plan = () => {
       const state = allStates[index];
       const card = (
         <div className="card">
-          <img className="state" src={`../src/US_Flowers/${state}.png`} alt={state} />
+          <img className="state" src={`US_Flowers/${state}.png`} alt={state} />
           <div className="card-body">
             <h4 className="card-title">
               <span className="badge bg-secondary">State</span>
@@ -229,7 +230,7 @@ const Plan = () => {
       {allStates.map((state, index) => (
               <button key={index} onClick={() => stateInfo(index)}>
                 <div className="picture-box">
-                  <img height="100px" src={`../src/US_States/${state}.png`} alt={state} />
+                  <img height="100px" src={`US_States/${state}.png`} alt={state} />
                 </div>
               </button>
             ))}

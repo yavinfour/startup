@@ -44,7 +44,7 @@ const Favs = () => {
     
             return (
                 <div className="card" key={index}>
-                    <img className="state" src={`../src/US_Flowers/${state}.png`} alt={state} />
+                    <img className="state" src={`US_Flowers/${state}.png`} alt={state} />
                     <div className="card-body">
                         <h4 className="card-title">
                             <span className="badge bg-secondary">State</span>
